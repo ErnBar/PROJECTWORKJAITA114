@@ -44,7 +44,7 @@ public class Playlist {
     @JoinTable(
         name = "canzoninellaplaylist",
         joinColumns = @JoinColumn(name = "id_playlist"),
-        inverseJoinColumns = @JoinColumn(name = "id_canzione")
+        inverseJoinColumns = @JoinColumn(name = "id_canzone")
     )
     private ArrayList<Canzone> canzoni;
 

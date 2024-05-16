@@ -41,6 +41,9 @@ public class Canzone {
     @Column(name = "testi")
     private String testi;
 
+    @Column(name = "numero_ascolti")
+    private int numero_ascolti;
+
     @ManyToMany(mappedBy = "canzoni")
     private ArrayList<Playlist> playlist;
     
