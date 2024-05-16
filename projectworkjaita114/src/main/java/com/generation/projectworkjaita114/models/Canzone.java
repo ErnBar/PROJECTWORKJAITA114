@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import jakarta.persistence.Column;  
 
 @Entity 
-@Table(name = "Canzone")
+@Table(name = "Canzoni")
 @Data
 public class Canzone {
 
