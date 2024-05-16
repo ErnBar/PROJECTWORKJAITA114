@@ -23,7 +23,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 
 @Entity
-@Table(name = "playlist")
+@Table(name = "Playlist")
 @Data
 public class Playlist {
     @Id
