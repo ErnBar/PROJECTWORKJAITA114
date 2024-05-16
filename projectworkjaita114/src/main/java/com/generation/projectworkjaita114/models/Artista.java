@@ -22,7 +22,7 @@ import jakarta.persistence.Table;
 public class Artista {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
 
     @Column(name = "nome_artista")
