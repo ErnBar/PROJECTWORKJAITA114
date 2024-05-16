@@ -37,6 +37,7 @@ public class Test implements CommandLineRunner{
         accountRepository.findAll().forEach(accounts::add);
         for(Account a: accounts){
             logger.info("Account :"+a.toString());
+            System.out.println("hello");
         }
     }
 
