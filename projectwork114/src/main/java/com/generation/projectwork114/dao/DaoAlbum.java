@@ -1,5 +1,6 @@
 package com.generation.projectwork114.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -39,26 +40,38 @@ public class DaoAlbum implements IDao{
 
     @Override
     public List<Entity> readAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'readAll'");
+        List<Entity> ris=new ArrayList<>();
+        Entity e;
+        for(Map<String,String> a : read()) {
+            e = context.getBean(Album.class, a);
+            ris.add(e);
+        }
+        return ris;
     }
 
     @Override
     public void update(Entity e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        String query = "UPDATE album SET titolo_album = ?, anno_pubblicazione = ? WHERE id = ?";
+        Album a = context.getBean("album",Album.class);
+        if(e instanceof Album) {
+            a = (Album) e;
+            database.executeUpdate(query, a.getTitolo_album(), String.valueOf(a.getAnno_pubblicazione()), String.valueOf(a.getId()));
+        }    
     }
 
     @Override
     public void delete(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        String query = "DELETE FROM album WHERE id = ?";
+        database.executeUpdate(query, String.valueOf(id));
     }
 
     @Override
     public Entity cercaPerId(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cercaPerId'");
+        String query = "SELECT * FROM album WHERE id = ?";
+        List<Map<String,String>> ris = database.executeQuery(query, String.valueOf(id));
+        Map<String,String> m = ris.get(0);
+        Album a = context.getBean(Album.class, m);
+        return a;
     }
     
     
