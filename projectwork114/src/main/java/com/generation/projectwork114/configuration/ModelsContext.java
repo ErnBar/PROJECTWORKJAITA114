@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
 import com.generation.projectwork114.dao.DaoAccount;
@@ -25,7 +26,8 @@ public class ModelsContext {
 
     @Bean
     @Scope("prototype")
-    public Account newAccount(Map<String, String> mappa) {
+    @Primary
+    public Account account(Map<String, String> mappa) {
         Account a=new Account();
         Long id=0L;
         if (mappa.containsKey("id")) {
@@ -42,7 +44,7 @@ public class ModelsContext {
 
     @Bean
     @Scope("prototype")
-    public Artista newArtista(Map<String,String> mappa){
+    public Artista artista(Map<String,String> mappa){
         Artista a = new Artista();
         Long id = 0L;
         Long cantante = 0L;
@@ -65,7 +67,7 @@ public class ModelsContext {
 
     @Bean
     @Scope("prototype")
-    public Album newAlbum(Map<String,String> mappa){
+    public Album album(Map<String,String> mappa){
         Album a = new Album();
         Long id = 0L;
         Long id_artista = 0L;
