@@ -97,8 +97,6 @@ public class DaoAccount implements IDao{
 
 
 
-    //userExists(String username)
-     //userExists(String username)
      public boolean userExists(String username) {
         String query = "select * from account where username = ?";
         List<Map<String, String>> ris = database.executeQuery(query, username);

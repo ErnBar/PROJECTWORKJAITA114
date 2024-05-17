@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styleFormLogin.css" type="text/css">
     <title>Registrazione Utente</title>
 </head>
 <body>
@@ -29,12 +28,11 @@
             <label for="confermaPassword">Conferma Password</label>
             <input type="password" id="confermaPassword" placeholder="Conferma Password" name="confermaPassword" required>
         </span>
-        <!--Ruolo-->
         <span>
             <label for="ruolo">Ruolo</label>
             <select id="ruolo" name="ruolo" th:field="${utente.ruolo}" required>
                 <option value="User">Utente</option>
-                <option value="Artista">Admin</option>
+                <option value="Artista">Artista</option>
             </select>
         </span>
         <span>

@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import com.generation.projectwork114.database.Database;
-import com.generation.projectwork114.interfaces.IDaoArtista;
+import com.generation.projectwork114.interfaces.IDao;
 import com.generation.projectwork114.models.Artista;
 import com.generation.projectwork114.models.Entity;
 
@@ -16,7 +16,7 @@ import lombok.Data;
 
 @Service
 @Data
-public class DaoArtista implements IDaoArtista{
+public class DaoArtista implements IDao{
 
     private final Database database;
 
@@ -63,6 +63,12 @@ public class DaoArtista implements IDaoArtista{
         Map<String,String> m = ris.get(0);
         Artista a = context.getBean(Artista.class, m);
         return a;
+    }
+
+    @Override
+    public void add(Entity e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
     
 }
