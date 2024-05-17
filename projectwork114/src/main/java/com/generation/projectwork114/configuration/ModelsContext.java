@@ -53,11 +53,6 @@ public class ModelsContext {
             id = Long.parseLong(mappa.get("id"));
         }
         a.setId(id);
-        a.setUsername(mappa.get("username"));
-        a.setNome(mappa.get("nome"));
-        a.setEmail(mappa.get("email"));
-        a.setPassword(mappa.get("password"));
-        a.setRuolo(mappa.get("ruolo"));
         a.setNome_artista(mappa.get("nome_artista"));
         a.setGenere_musicale(mappa.get("genere_musicale"));
         a.setBiografia(mappa.get("biografia"));
