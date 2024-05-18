@@ -68,13 +68,13 @@ public class DaoArtista implements IDao{
     @Override
     public void add(Entity e) {
         String query = "INSERT INTO account (username, nome, email, password, ruolo) VALUES (?, ?, ?, ?, ?)";
-        String query2 = "INSERT INTO artisti(nome_artista,genere_musicale,biografia,id_cantante) VALUES(?,?,?,?)";
+        String query2 = "INSERT INTO artisti(id,nome_artista,genere_musicale,biografia) VALUES(?,?,?,?)";
         Artista a = null;
         if (e!=null && e instanceof Artista) {
             a = (Artista) e;
             database.executeUpdate(query, a.getUsername(), a.getNome(), a.getEmail(),
-             a.getPassword(), a.getRuolo());
-            database.executeUpdate(query2, a.getNome_artista(),a.getGenere_musicale(),a.getBiografia(),String.valueOf(a.getId()));
+            a.getPassword(), a.getRuolo());
+            database.executeUpdate(query2,a.getNome_artista(),a.getGenere_musicale(),a.getBiografia());
         }
     }
     

@@ -44,10 +44,11 @@ public class ModelsContext {
 
     @Bean
     @Scope("prototype")
+    @Primary
     public Artista artista(Map<String,String> mappa){
         Artista a = new Artista();
         Long id = 0L;
-        Long cantante = 0L;
+        
 
         if(mappa.containsKey("id")) {
             id = Long.parseLong(mappa.get("id"));
@@ -61,10 +62,6 @@ public class ModelsContext {
         a.setNome_artista(mappa.get("nome_artista"));
         a.setGenere_musicale(mappa.get("genere_musicale"));
         a.setBiografia(mappa.get("biografia"));
-        if(mappa.containsKey("id_cantante")) {
-            cantante = Long.parseLong(mappa.get("id_cantante"));
-         }
-        a.setId_cantante(cantante);//prove
         return a;
         
     }
