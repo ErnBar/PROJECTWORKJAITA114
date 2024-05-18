@@ -23,7 +23,8 @@ public class DaoPlaylist implements IDao {
     private final ApplicationContext context;
 
     @Override
-    public void add(Entity e) {
+    public int add(Entity e) {
+        int ris = 0;
         String query="INSERT INTO playlist (nome_playlist, id_account, data_creazione)VALLUES(?,?,?)";
         Playlist p = context.getBean("playlist", Playlist.class);
         if (e instanceof Playlist) {
@@ -34,8 +35,8 @@ public class DaoPlaylist implements IDao {
                 database.executeUpdate(query, String.valueOf(p.getId()), String.valueOf(c.getId()));
             }
 
-        }  
-
+        }
+        return ris;
    }
 
     @Override
@@ -47,7 +48,7 @@ public class DaoPlaylist implements IDao {
 
     @Override
     public List<Entity> readAll() {
-        List<Entity> ris = new ArrayList();
+        List<Entity> ris = new ArrayList<>();
         Entity e;
         for (Map<String, String> m : read()) {
             e = context.getBean(Playlist.class, m);

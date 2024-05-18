@@ -22,14 +22,17 @@ public class DaoAlbum implements IDao{
     private final ApplicationContext context;
 
     @Override
-    public void add(Entity e) {
+    public int add(Entity e) {
+        int ris=0;
        String query="INSERT INTO album(titolo_album,anno_pubblicazione,id_artista) VALUES(?,?,?)";
        Album a = context.getBean("album",Album.class);
          if(e instanceof Album) {
               a = (Album) e;
               database.executeUpdate(query, a.getTitolo_album(),String.valueOf(a.getAnno_pubblicazione()),
               String.valueOf(a.getId_artista().getId()));
-         }  
+         } 
+        return ris; 
+         
     }
 
     @Override

@@ -48,7 +48,6 @@ public class ModelsContext {
     public Artista artista(Map<String,String> mappa){
         Artista a = new Artista();
         Long id = 0L;
-        
 
         if(mappa.containsKey("id")) {
             id = Long.parseLong(mappa.get("id"));

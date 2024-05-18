@@ -7,7 +7,7 @@ import com.generation.projectwork114.models.Entity;
 
 public interface IDao {
     
-    void add(Entity e);
+    int add(Entity e);
     List<Map<String,String>> read();
     List<Entity> readAll();
     void update(Entity e);

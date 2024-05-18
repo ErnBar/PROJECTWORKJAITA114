@@ -28,7 +28,8 @@ public class DaoRecensioni implements IDao{
     private final Database database;
 
     @Override
-    public void add(Entity e) {
+    public int add(Entity e) {
+        int ris = 0;
         String query = "INSERT INTO recensioni (id, id_utente, id_album, valutazione) VALUES (?, ?, ?, ?)";
         Recensione r = context.getBean("recensione",Recensione.class);
         if (e instanceof Recensione) {
@@ -36,6 +37,7 @@ public class DaoRecensioni implements IDao{
             database.executeUpdate(query, String.valueOf(r.getId()), 
             String.valueOf(r.getId_utente()), String.valueOf(r.getId_album()),String.valueOf(r.getValutazione()));
         }
+        return ris;
     }
 
     @Override

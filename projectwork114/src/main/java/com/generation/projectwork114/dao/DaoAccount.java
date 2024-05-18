@@ -24,22 +24,16 @@ public class DaoAccount implements IDao{
     private final ApplicationContext context;
 
     @Override
-    public void add(Entity e) {
+    public int add(Entity e) {
+        int ris = 0;
         String query = "INSERT INTO account (username, nome, email, password, ruolo) VALUES (?, ?, ?, ?, ?)";
         Account a = context.getBean("account",Account.class);
         if (e instanceof Account) {
             a = (Account) e;
             database.executeUpdate(query, a.getUsername(), a.getNome(), a.getEmail(),
              a.getPassword(), a.getRuolo());
-            //  if (a.getRuolo().equalsIgnoreCase("artista")) {
-            //     Artista artista = context.getBean("artista",Artista.class);
-            //     artista = (Artista) a;
-            //     if (a instanceof Artista ) {
-            //         String query2 = "INSERT INTO artisti(nome_artista,genere_musicale,biografia,id_cantante) VALUES(?,?,?,?)";
-            //         database.executeUpdate(query2, artista.getNome_artista(),artista.getGenere_musicale(),artista.getBiografia(),String.valueOf(a.getId()));
-            //     } 
-            //  }
         }
+        return ris;
     }
 
     @Override
