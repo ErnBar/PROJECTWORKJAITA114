@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.generation.projectwork114.models.Account;
+import com.generation.projectwork114.models.Artista;
 import com.generation.projectwork114.services.ServiceAccount;
+import com.generation.projectwork114.services.ServiceArtista;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -24,6 +26,10 @@ public class UtenteController {
 
     @Autowired
     ApplicationContext applicationContext;
+
+    
+    @Autowired
+    private ServiceArtista serviceArtista;
 
 
     @GetMapping("/formRegistrazione")
@@ -62,6 +68,44 @@ public class UtenteController {
             //salvo l'utente nel database
             serviceAccount.add(allParams);
             //salvo l'utente in sessione
+            session.setAttribute("utente", utente);
+            return "confermaRegistrazione.html";
+    }
+        @GetMapping("/formregistrazione-artista")
+    public String registerArtista(Model model) {
+        Artista a= applicationContext.getBean("artista",Artista.class);
+        model.addAttribute("cantante", a);
+        return "registrazioneArtista.html";
+    }
+    
+
+    //metodo per registrare un utente
+    @PostMapping("/register-artista")
+    public String registerArtista(
+        Model model,
+        @RequestParam("confermaPassword")String confermaPassword, 
+        @ModelAttribute Artista utente,
+        HttpSession session,
+        @RequestParam Map<String, String> allParams){
+            if(serviceAccount.findByUserName(utente.getUsername())) {
+                model.addAttribute("error", "Username già presente");
+                return "formLogin.html";
+            }
+
+            
+            if (utente.getPassword().length() < 8) {
+                model.addAttribute("error", "La password deve essere lunga almeno 8 caratteri");
+                return "registrazioneArtista.html";
+            }
+
+
+            if (!utente.getPassword().equals(confermaPassword)) {
+                model.addAttribute("error", "Le password non coincidono");
+                return "registrazioneArtista.html";
+            }
+            
+            serviceArtista.add(allParams);
+           
             session.setAttribute("utente", utente);
             return "confermaRegistrazione.html";
     }
