@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Form Login</title>
-    </head>
-    <body>
-        <h1>Login</h1>
-        <br>
-        <form action="/login" method="post">
-            <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required placeholder="Username">
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesso a NOMESITO</title>
+    <link rel="stylesheet" href="css/formLogin.css" type="text/css">
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <h1>Accedi</h1>
+            <form action="/login" method="post" class="login-form">
+                <div class="input-group">
+                    <input type="text" id="username" name="username" required placeholder="Nome utente">
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" required placeholder="Password">
+                </div>
+                <button type="submit" id="login">Accedi</button>
+                <div th:if="${error}" class="error-message">
+                    <p th:text="${error}"></p>
+                </div>
+            </form>
+            <div class="registration-links">
+                <a href="/formRegistrazione" class="registration-link">Registrati</a>
+                <a href="/formregistrazione-artista" class="registration-link">Registrati come Artista</a>
             </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required placeholder="Password">
-            </div>
-            <button type="submit" value="Login" id="login">Login</button>
-            <div th:if="${error}" class="error-messagge">
-                <p th:text="${error}"></p>
-            </div>
-            <br><br>
-        </form>
-        <form action="/formRegistrazione" method="get">
-            <input type="submit" value="Registrazione">
-        </form>
-        <form action="/formregistrazione-artista" method="get">
-            <input type="submit" value="Registrazione Artista">
-        </form>
-    </body>
+        </div>
+    </div>
+</body>
 </html>
