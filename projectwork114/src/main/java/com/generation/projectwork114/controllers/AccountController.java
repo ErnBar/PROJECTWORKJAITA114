@@ -1,5 +1,6 @@
 package com.generation.projectwork114.controllers;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import com.generation.projectwork114.services.ServiceArtista;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-public class UtenteController {
+public class AccountController {
 
     @Autowired
     private ServiceAccount serviceAccount;
@@ -108,6 +109,23 @@ public class UtenteController {
            
             session.setAttribute("utente", utente);
             return "confermaRegistrazione.html";
+    }
+
+    @GetMapping("/pannello-controllo")
+    public String pannelloControlloUtente(HttpSession session,Model model){
+        List<Account> ris = serviceAccount.getAccounts();
+        model.addAttribute("accounts", ris);
+        boolean isAdmin = false;
+        Object utente = session.getAttribute("utente");
+        
+        if (utente != null && utente instanceof Account) {
+            Account u = (Account) utente;
+            if (u.getRuolo().equalsIgnoreCase("admin")) {
+                isAdmin = true;
+            }
+        }
+        model.addAttribute("isAdmin", isAdmin);
+        return "PannelloControlloUtente.html";
     }
     
 }

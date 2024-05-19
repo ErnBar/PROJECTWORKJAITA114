@@ -23,16 +23,16 @@ public class AppController {
             return "redirect:/formLogin";
         }else {
             Object utente = session.getAttribute("utente");
-            String actualUser="Utente attuale: ";
+            String actualUser="";
             if (utente!=null && utente instanceof Account) {
                 Account u = (Account) utente;
                 actualUser += u.getUsername();
-                if (u.getRuolo().equalsIgnoreCase("admin")) {
-                    actualUser = "Admin: "+u.getUsername(); 
-                }
-                else if (u.getRuolo().equalsIgnoreCase("artista")) {
-                    actualUser = "Artista: "+u.getUsername();
-                }
+                // if (u.getRuolo().equalsIgnoreCase("admin")) {
+                //     actualUser = "Admin: "+u.getUsername(); 
+                // }
+                // else if (u.getRuolo().equalsIgnoreCase("artista")) {
+                //     actualUser = "Artista: "+u.getUsername();
+                // }
             }
             model.addAttribute("actualUser", actualUser);
             return "main.html";
