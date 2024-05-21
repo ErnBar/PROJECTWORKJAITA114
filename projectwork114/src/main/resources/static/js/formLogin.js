@@ -6,7 +6,7 @@ function startAudio() {
     myAudio.play().catch(function(error) {
         console.error("L'autoplay dell'audio non è stato possibile: ", error);
     });
-    myAudio.volume = 0.5;
+    myAudio.volume = 0.03;
     closeModal();
 }
 function closeModal() {
