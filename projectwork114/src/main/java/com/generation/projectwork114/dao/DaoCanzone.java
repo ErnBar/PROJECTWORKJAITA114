@@ -1,6 +1,7 @@
 package com.generation.projectwork114.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -84,6 +85,18 @@ public class DaoCanzone implements IDao{
         Map<String, String> m = ris.get(0);
         Canzone c = context.getBean(Canzone.class, m);
         return c;
+    }
+
+    public Map<Long, Entity> readByIdPlaylist(Long idPlaylist) {
+        String query = "select c.* from canzoni c join canzoninellaplaylist cnp on c.id = cnp.id_playlist where cnp.id_playlist=?";
+        List<Map<String, String>> result = database.executeQuery(query, String.valueOf(idPlaylist));
+        Map<Long, Entity> ris = new HashMap<>();
+
+        for(Map<String, String> params : result){
+            Canzone c = context.getBean(Canzone.class, params);
+            ris.put(Long.parseLong(params.get("id")), c);
+        }
+        return ris;
     }
     
 }

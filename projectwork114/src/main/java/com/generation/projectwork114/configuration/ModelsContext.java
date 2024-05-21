@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Scope;
 import com.generation.projectwork114.dao.DaoAccount;
 import com.generation.projectwork114.dao.DaoAlbum;
 import com.generation.projectwork114.dao.DaoArtista;
+import com.generation.projectwork114.dao.DaoCanzone;
 import com.generation.projectwork114.dao.DaoPlaylist;
 import com.generation.projectwork114.models.Account;
 import com.generation.projectwork114.models.Album;
@@ -22,6 +23,7 @@ import com.generation.projectwork114.models.Artista;
 import com.generation.projectwork114.models.Canzone;
 import com.generation.projectwork114.models.Entity;
 import com.generation.projectwork114.models.Playlist;
+import com.generation.projectwork114.models.Recensione;
 
 @Configuration
 public class ModelsContext {
@@ -37,6 +39,9 @@ public class ModelsContext {
 
     @Autowired
     private DaoPlaylist daoPlaylist;
+
+    @Autowired
+    private DaoCanzone daoCanzone;
 
 
     @Bean
@@ -138,34 +143,62 @@ public class ModelsContext {
     }
 
 
-    // @Bean
-    // @Scope("prototype")
-    // public Playlist playlist(Map<String, String> mappa){
-    //     Playlist p = new Playlist();
-    //     Long id = 0L;
-    //     Long id_account = 0L;
+    @Bean
+    @Scope("prototype")
+    public Playlist playlist(Map<String, String> mappa){
+        Playlist p = new Playlist();
+        Long id = 0L;
+        Long id_account = 0L;
 
-    //     if(mappa.containsKey("id")) {
-    //         id = Long.parseLong(mappa.get("id"));
-    //     }
-    //     p.setId(id);
-    //     p.setNome_playlist(mappa.get("nome_playlist"));
-    //     if(mappa.containsKey("id_account")) {
-    //         id_account = Long.parseLong(mappa.get("id_account"));
-    //     }
-    //     p.setId_account((Account)daoAccount.cercaPerId(id_account));
-        //p.setDataCreazione(Timestamp.valueOf(mappa.get("data_creazione")));
-        //List<Canzone> listaCanzoni = new ArrayList<>();
-        //Map<Long, Entity> result = daoPlaylist.readByIdPlaylist(p.getId());
-       // for(Entity e : result.values()){
-         //   if(e instanceof Canzone){
-                //listaCanzoni.add((Canzone)e);
-         //   }
-       // }
-       // p.setCanzoni(listaCanzoni);
-       // return p;
+        if(mappa.containsKey("id")) {
+            id = Long.parseLong(mappa.get("id"));
+        }
+        p.setId(id);
+        p.setNome_playlist(mappa.get("nome_playlist"));
+        if(mappa.containsKey("id_account")) {
+            id_account = Long.parseLong(mappa.get("id_account"));
+        }
+        p.setId_account((Account)daoAccount.cercaPerId(id_account));
+        if(mappa.containsKey("data_creazione")){
+            p.setDataCreazione(Timestamp.valueOf(mappa.get("data_creazione")));
+        }
+        List<Canzone> listaCanzoni = new ArrayList<>();
+        Map<Long, Entity> result = daoCanzone.readByIdPlaylist(p.getId());
+        for(Entity e : result.values()){
+            if(e instanceof Canzone){
+                listaCanzoni.add((Canzone)e);
+            }
+        }
+        p.setCanzoni(listaCanzoni);
 
-    //}
+        return p;
+    }
+
+    @Bean
+    @Scope("prototype")
+    public Recensione recensione(Map<String, String> mappa){
+        Recensione r = new Recensione();
+        Long id = 0L;
+        Long id_account = 0L;
+        Long id_album = 0L;
+
+        if(mappa.containsKey("id")) {
+            id = Long.parseLong(mappa.get("id"));
+        }
+        r.setId(id);
+        
+        if(mappa.containsKey("id_utente")) {
+            id_account = Long.parseLong(mappa.get("id_utente"));
+        }
+        r.setId_utente((Account)daoAccount.cercaPerId(id_account));
+        if(mappa.containsKey("id_album")) {
+            id_album = Long.parseLong(mappa.get("id_album"));
+        }
+        r.setId_album((Album)daoAlbum.cercaPerId(id_album));
+        r.setValutazione(Integer.parseInt(mappa.get("valutazione")));
+        
+        return r;
+    }
 
         
 }
