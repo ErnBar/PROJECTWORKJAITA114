@@ -1,17 +1,9 @@
-@keyframes animatedBackground {
-    0% { background-position: 0 0; }
-    50% { background-position: 100% 0; }
-    100% { background-position: 0 0; }
-}
-
 body, html {
     height: 100%;
     margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: linear-gradient(270deg, #181818, #282828,  #1db954, #282828, #181818);
-    background-size: 1800% 1800%;
-    animation: animatedBackground 14s ease infinite;
-    color: #fff;
+    background: #ffffff; /* Bianco */
+    color: #000; /* Nero */
 }
 
 .container {
@@ -22,13 +14,13 @@ body, html {
 }
 
 h1 {
-    color: #fff;
+    color: #000; /* Nero */
     text-align: center;
     margin-bottom: 30px;
 }
 
 .form-registrazione {
-    background-color: #282828;
+    background-color: #f2f2f2; /* Grigio chiaro */
     padding: 20px;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.5);
@@ -41,6 +33,7 @@ h1 {
 .form-group label {
     display: block;
     margin-bottom: 5px;
+    color: #000; /* Nero */
 }
 
 .form-group input[type="text"],
@@ -53,15 +46,15 @@ h1 {
     margin-bottom: 15px;
     border: none;
     border-radius: 4px;
-    background-color: #333;
-    color: #fff;
+    background-color: #fff; /* Bianco */
+    color: #000; /* Nero */
 }
 
 .form-group textarea {
     height: 100px;
     resize: vertical;
-    background-color: #333;
-    color: #fff;
+    background-color: #fff; /* Bianco */
+    color: #000; /* Nero */
 }
 
 .form-group button {
@@ -69,8 +62,8 @@ h1 {
     padding: 12px;
     margin-bottom: 15px;
     border: none;
-    background-color: #1db954;
-    color: white;
+    background-color: #ffcc00; /* Giallo */
+    color: #000; /* Nero */
     font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
@@ -78,11 +71,11 @@ h1 {
 }
 
 button:hover {
-    background-color: #1ed760;
+    background-color: #ffdd33; /* Giallo più chiaro */
 }
 
 .error-message {
-    color: #e74c3c;
+    color: #e74c3c; /* Rosso */
     text-align: center;
     margin-top: 20px;
 }

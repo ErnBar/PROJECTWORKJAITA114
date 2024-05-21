@@ -34,18 +34,24 @@ nav ul{
     font-size: 1.3rem;
 }
 
-.container{
-    min-height: 72vh;
+.container {
+    min-height: 110vh;
     background-color: black;
     color: white;
-   font-family: 'Varela Round', sans-serif;
-   display: flex;
-   margin: 23px auto;
-   width: 70%;
-   border-radius: 12px;
-   padding: 34px;
-   background-image: url('bg.jpg');
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    margin: 23px auto;
+    width: 70%;
+    border-radius: 12px;
+    padding: 34px;
+    background-image: url('/backgrounds/Edit Starry 1.png');
+    background-size: cover; /* Adatta l'immagine per coprire completamente il contenitore */
+    background-position: right; /* Centra l'immagine nel contenitore */
+    background-position-y: 10%;
+    background-position-x: 50%;
+    background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
 }
+
 
 .bottom{
     position: sticky;

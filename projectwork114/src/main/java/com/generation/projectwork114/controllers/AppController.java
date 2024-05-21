@@ -34,8 +34,18 @@ public class AppController {
                 //     actualUser = "Artista: "+u.getUsername();
                 // }
             }
-            model.addAttribute("actualUser", actualUser);
-            return "main.html";
+        boolean isAdmin = false;
+        
+        if (utente != null && utente instanceof Account) {
+            Account u = (Account) utente;
+            if (u.getRuolo().equalsIgnoreCase("admin")) {
+                isAdmin = true;
+            }
+        }
+        model.addAttribute("isAdmin", isAdmin);
+            
+        model.addAttribute("actualUser", actualUser);
+        return "main.html";
         }
     }
 
