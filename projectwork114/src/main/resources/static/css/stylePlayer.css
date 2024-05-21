@@ -1,20 +1,20 @@
 /* importing two Google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-body{
+body {
     background-color: antiquewhite;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-nav{
+nav {
     font-family: 'Ubuntu', sans-serif;
 }
 
-nav ul{
+nav ul {
     display: flex;
     align-items: center;
     list-style-type: none;
@@ -22,7 +22,8 @@ nav ul{
     background-color: black;
     color: white;
 }
-.brand img{
+
+.brand img {
     width: 44px;
     padding: 0 8px;
 }
@@ -45,15 +46,14 @@ nav ul{
     border-radius: 12px;
     padding: 34px;
     background-image: url('/backgrounds/Edit Starry 1.png');
-    background-size: cover; /* Adatta l'immagine per coprire completamente il contenitore */
-    background-position: right; /* Centra l'immagine nel contenitore */
+    background-size: cover;
+    background-position: right;
     background-position-y: 10%;
     background-position-x: 50%;
-    background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
+    background-repeat: no-repeat;
 }
 
-
-.bottom{
+.bottom {
     position: sticky;
     bottom: 0;
     height: 130px;
@@ -62,30 +62,30 @@ nav ul{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
-.icons{
-    margin-top: 14px; 
+.icons {
+    margin-top: 14px;
 }
-.icons i{
+
+.icons i {
     cursor: pointer;
 }
 
-#myProgressBar{
-    width: 80vw; 
+#myProgressBar {
+    width: 80vw;
     cursor: pointer;
 }
 
-.songItemContainer{
+.songItemContainer {
     margin-top: 74px;
 }
 
-.songItem{
+.songItem {
     height: 50px;
     display: flex;
     background-color: white;
-    
     color: black;
     margin: 12px 0;
     justify-content: space-between;
@@ -93,50 +93,99 @@ nav ul{
     border-radius: 34px;
 }
 
-.songItem img{
+.songItem img {
     width: 43px;
     margin: 0 23px;
     border-radius: 34px;
 }
 
-.timestamp{
+.songLyricsContainer {
+    flex: 1;
+    max-width: 45%;
+    color: rgb(255, 255, 255);
+    font-size: small;
+    border-radius: 12px;
+    padding: 20px;
+    margin-left: 480px;
+    margin-bottom: 150px;
+    overflow-y: auto;
+    max-height: 72vh;
+}
+
+.timestamp {
     margin: 0 23px;
 }
 
-.timestamp i{
+.timestamp i {
     cursor: pointer;
 }
 
-.songInfo{
+.songInfo {
     position: absolute;
     left: 10vw;
     font-family: 'Varela Round', sans-serif;
 }
 
-.songInfo img{
+.songInfo img {
     opacity: 0;
     transition: opacity 0.4s ease-in;
 }
 
-#home{
+.songLyrics {
+    display: none;
+    flex: 1;
+    max-width: 45%;
+    background-color: white;
+    color: black;
+    border-radius: 12px;
+    padding: 20px;
+    font-family: 'Varela Round', sans-serif;
+    margin-left: 20px;
+}
+
+.songLyrics h2 {
+    margin-bottom: 20px;
+}
+
+.lyricsItem {
+    display: none; /* Nasconde tutti gli elementi delle lyrics inizialmente */
+    opacity: 0; /* Opacità iniziale a zero */
+    transition: opacity 3s ease-in-out; /* Transizione per l'opacità */
+}
+
+.lyricsItem.show {
+    display: block;
+    opacity: 1;
+    transition: opacity 1s ease-in-out; /* Modifica il valore della durata della transizione */
+}
+
+.lyricsItem h3 {
+    margin-top: 10px;
+}
+
+.lyricsItem p {
+    white-space: pre-wrap; /* Preserva la formattazione delle lyrics */
+}
+
+#home {
     text-decoration: none;
     color: white;
-    
 }
+
 nav .right-link {
     margin-left: auto;
-  }
-  
-  /* Optionally, if you want to ensure the brand and the link have some spacing */
-  nav ul li.brand, nav .right-link {
+}
+
+/* Optionally, if you want to ensure the brand and the link have some spacing */
+nav ul li.brand,
+nav .right-link {
     padding: 0 10px;
-  }
+}
 
-
-  #gif{
+#gif {
     position: absolute;
     bottom: -20px;
     left: -120px;
     height: 100px;
     width: 100px;
-  }
+}

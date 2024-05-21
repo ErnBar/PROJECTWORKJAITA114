@@ -30,7 +30,12 @@
           </div>
         </div>
       </div>
-      <div class="songBanner"></div>
+      <div class="songLyricsContainer">
+        <div th:each="canzone, iterStat : ${canzoni}" class="lyricsItem" th:id="'lyrics-' + ${iterStat.index}">
+          <h2 th:text="${canzone.titolo_canzone}"></h2>
+          <p th:text="${canzone.testi}"></p>
+        </div>
+      </div>
     </div>
 
     <div class="bottom">
@@ -56,4 +61,3 @@
     <script src="https://kit.fontawesome.com/26504e4a1f.js" crossorigin="anonymous"></script>
   </body>
 </html>
-

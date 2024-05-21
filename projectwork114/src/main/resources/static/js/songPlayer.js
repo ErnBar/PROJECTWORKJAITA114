@@ -8,6 +8,7 @@ const myProgressBar = document.getElementById('myProgressBar');
 const gif = document.getElementById('gif');
 const masterSongName = document.getElementById('masterSongName');
 const songItems = Array.from(document.getElementsByClassName('songItem'));
+const lyricsItems = Array.from(document.getElementsByClassName('lyricsItem'));
 const next = document.getElementById('next');
 const previous = document.getElementById('previous');
 
@@ -40,6 +41,7 @@ const playSong = () => {
         audioElement.currentTime = 0;
         audioElement.play();
         updatePlayButton(true);
+        showLyrics(songIndex);
     } else {
         console.error('songIndex fuori dal range:', songIndex);
     }
@@ -104,6 +106,17 @@ const makeAllPlays = () => {
     Array.from(document.getElementsByClassName('songItemPlay')).forEach((element) => {
         element.classList.remove('fa-pause-circle');
         element.classList.add('fa-play-circle');
+    });
+};
+
+// Function to show lyrics for the current song
+const showLyrics = (index) => {
+    lyricsItems.forEach((lyricsItem, i) => {
+        if (i === index) {
+            lyricsItem.classList.add('show');
+        } else {
+            lyricsItem.classList.remove('show');
+        }
     });
 };
 
