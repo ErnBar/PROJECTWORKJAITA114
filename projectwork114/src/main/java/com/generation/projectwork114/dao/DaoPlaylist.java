@@ -1,6 +1,7 @@
 package com.generation.projectwork114.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +38,7 @@ public class DaoPlaylist implements IDao {
 
         }
         return ris;
-   }
+    }
 
     @Override
     public List<Map<String, String>> read() {
@@ -72,7 +73,7 @@ public class DaoPlaylist implements IDao {
     public void delete(Long id) {
         String query = "DELETE FROM playlist WHERE id = ?";
         database.executeUpdate(query, String.valueOf(id));
-   }
+    }
 
     @Override
     public Entity cercaPerId(Long id) {
@@ -82,6 +83,19 @@ public class DaoPlaylist implements IDao {
             return null;
         }
         return context.getBean(Playlist.class, righe.get(0));
-  }
+    }
+
+    public Map<Long, Entity> readByIdCanzone(Long idCanzone) {
+        String query = "select p.* from playlist p join canzoninellaplaylist cnp on p.id = cnp.id_playlist where cnp.id_canzone=?";
+        List<Map<String, String>> result = database.executeQuery(query, String.valueOf(idCanzone));
+        Map<Long, Entity> ris = new HashMap<>();
+
+        for(Map<String, String> params : result){
+            Playlist p = context.getBean(Playlist.class, params);
+            ris.put(Long.parseLong(params.get("id")), p);
+        }
+        return ris;
+    }
+
 
 }
