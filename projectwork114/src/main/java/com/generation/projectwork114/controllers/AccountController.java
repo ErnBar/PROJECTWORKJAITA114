@@ -145,19 +145,53 @@ public class AccountController {
         model.addAttribute("isAdmin", isAdmin);
         return "PannelloControlloUtente.html";
     }
+
+    @GetMapping("/pannello-controllo-utente")
+    public String pannelloControlloUtente(Model model, HttpSession session){
+        Object utente = session.getAttribute("utente");
+        boolean isUtente = false;
+        if (utente != null && utente instanceof Account) {
+            Account u = (Account) utente;
+            utente = serviceAccount.findById(u.getId());
+            if (u.getRuolo().equalsIgnoreCase("user")||u.getRuolo().equalsIgnoreCase("artista")) {
+                isUtente = true;
+            }
+        }
+        model.addAttribute("isUtente", isUtente);
+        model.addAttribute("accounts", utente);
+        
+        return "pannelloUtenteLoggato.html";
+    }
     
     @PostMapping("/modifica-account")
-    public String modificaAccount(@RequestParam Map<String, String> params){
-
-        serviceAccount.update(params);
-        return "redirect:/pannello-controllo";
+    public String modificaAccount(@RequestParam Map<String, String> params,HttpSession session){
+        Object utente = session.getAttribute("utente");
+        if (utente != null && utente instanceof Account) {
+            Account u = (Account) utente;
+            if (u.getRuolo().equalsIgnoreCase("admin")) {
+                serviceAccount.update(params);
+                return "redirect:/pannello-controllo";
+            }
+            else{
+                serviceAccount.update(params);
+            }
+        }
+        return "redirect:/pannello-controllo-utente";
+        
 
     }
 
     @GetMapping("/elimina-account")
     public String eliminaAccount(@RequestParam (name = "idAccount", defaultValue = "0")
-    Long idAccount, Model model){
-
+    Long idAccount, Model model, HttpSession session){
+        Object utente = session.getAttribute("utente");
+        if (utente != null && utente instanceof Account) {
+            Account u = (Account) utente;
+            if (u.getId() == idAccount) {
+                serviceAccount.delete(idAccount);
+                return "redirect:/formLogin";
+            }
+        }
         if(idAccount == 0){
             model.addAttribute("error", "Account non trovato");
 
@@ -167,6 +201,7 @@ public class AccountController {
         serviceAccount.delete(idAccount);
         return "redirect:/pannello-controllo";
     }
+    
 
 
 

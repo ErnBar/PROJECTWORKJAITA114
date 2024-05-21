@@ -17,26 +17,26 @@
         <section class="user-table">
             <table>
                 <thead>
-                    <th th:if="${isAdmin}">ID</th>
+                    <th>ID</th>
                     <th>USERNAME</th>
                     <th>NOME</th>
                     <th>EMAIL</th>
-                    <th th:if="${isAdmin}" >PASSWORD</th>
+                    <th>PASSWORD</th>
                     <th>RUOLO</th>
                     <th>DATA REGISTRAZIONE</th>
-                    <th th:if="${isAdmin}">MODIFICA</th>
-                    <th th:if="${isAdmin}">ELIMINA</th>
+                    <th>MODIFICA</th>
+                    <th>ELIMINA</th>
                 </thead>
                 <tbody>
                     <tr th:each="account : ${accounts}">
-                        <td th:if="${isAdmin}" th:text="${account.id}"></td>
+                        <td th:text="${account.id}"></td>
                         <td th:text="${account.username}"></td>
                         <td th:text="${account.nome}"></td>
                         <td th:text="${account.email}"></td>
-                        <td th:if="${isAdmin}" th:text="${account.password}"></td>
+                        <td th:text="${account.password}"></td>
                         <td th:text="${account.ruolo}"></td>
                         <td th:text="${#strings.substring(account.data_registrazione, 0, #strings.length(account.data_registrazione)-2)}"></td>
-                        <td th:if="${isAdmin}">
+                        <td>
                             <button
                                 th:modifica-id="${account.id}"
                                 th:modifica-username="${account.username}"
@@ -49,7 +49,7 @@
                                 Modifica
                             </button>
                         </td>
-                        <td th:if="${isAdmin}">
+                        <td>
                             <a th:href="|/elimina-account?idAccount=${account.id}|">
                                 <button class="elimina-btn">Elimina</button>
                             </a>
@@ -59,7 +59,7 @@
             </table>
         </section>
         <aside id="modifica" hidden>
-            <form id="modifica-account" th:if="${isAdmin}" action="/modifica-account" method="post">
+            <form id="modifica-account" action="/modifica-account" method="post">
                 <input type="text" id="modifica-id" name="id" placeholder="ID" readonly>
                 <input type="text" id="modifica-username" name="username" placeholder="Username">
                 <input type="text" id="modifica-nome" name="nome" placeholder="Nome">
