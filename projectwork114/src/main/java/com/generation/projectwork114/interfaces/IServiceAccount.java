@@ -19,4 +19,6 @@ public interface IServiceAccount {
     public boolean findByUserName(String username);
 
     public Account findByUsernameAndPassword(String username, String password);
+
+    public boolean findByEmail(String email);
 }

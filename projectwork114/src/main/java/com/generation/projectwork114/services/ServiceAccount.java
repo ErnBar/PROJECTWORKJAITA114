@@ -70,5 +70,10 @@ public class ServiceAccount implements IServiceAccount{
         }
         return null;
     }
+
+    @Override
+    public boolean findByEmail(String email) {
+        return daoAccount.emailExists(email);
+    }
     
 }
