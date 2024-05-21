@@ -16,7 +16,6 @@ const songs = songItems.map((item, i) => {
     return {
         songName: item.querySelector('.songName').innerText,
         filePath: `/audio/${i + 1}.wav`, // Assuming the files are named 1.wav, 2.wav, etc.
-        coverPath: item.querySelector('img').src,
         duration: item.querySelector('.timestamp').innerText
     };
 });
