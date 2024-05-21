@@ -117,3 +117,26 @@ nav ul{
     opacity: 0;
     transition: opacity 0.4s ease-in;
 }
+
+#home{
+    text-decoration: none;
+    color: white;
+    
+}
+nav .right-link {
+    margin-left: auto;
+  }
+  
+  /* Optionally, if you want to ensure the brand and the link have some spacing */
+  nav ul li.brand, nav .right-link {
+    padding: 0 10px;
+  }
+
+
+  #gif{
+    position: absolute;
+    bottom: -20px;
+    left: -120px;
+    height: 100px;
+    width: 100px;
+  }

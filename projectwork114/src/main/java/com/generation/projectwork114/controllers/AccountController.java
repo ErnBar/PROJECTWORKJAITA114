@@ -55,6 +55,13 @@ public class AccountController {
                 return "formLogin.html";
             }
 
+            if (serviceAccount.findByEmail(utente.getEmail())) {
+                model.addAttribute("error", "Email già presente");
+                return "formLogin.html";
+                
+            }
+            
+
             //Verifico che la password sia lunga almeno 8 caratteri
             if (utente.getPassword().length() < 8) {
                 model.addAttribute("error", "La password deve essere lunga almeno 8 caratteri");
@@ -95,6 +102,13 @@ public class AccountController {
                 return "formLogin.html";
             }
 
+
+            if (serviceAccount.findByEmail(utente.getEmail())) {
+                model.addAttribute("error", "Email già presente");
+                return "formLogin.html";
+                
+            }
+
             
             if (utente.getPassword().length() < 8) {
                 model.addAttribute("error", "La password deve essere lunga almeno 8 caratteri");
@@ -106,6 +120,8 @@ public class AccountController {
                 model.addAttribute("error", "Le password non coincidono");
                 return "registrazioneArtista.html";
             }
+
+            
             
             serviceArtista.add(allParams);
            

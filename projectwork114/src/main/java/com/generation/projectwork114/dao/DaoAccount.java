@@ -96,5 +96,12 @@ public class DaoAccount implements IDao{
         List<Map<String, String>> ris = database.executeQuery(query, username);
         return ris.size() > 0;
     }
+
+
+    public boolean emailExists(String email) {
+        String query = "select * from account where email = ?";
+        List<Map<String, String>> ris = database.executeQuery(query, email);
+        return ris.size() > 0;
+    }
     
 }
