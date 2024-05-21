@@ -1,6 +1,6 @@
 package com.generation.projectwork114.configuration;
 
-import java.sql.Time;
+
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -132,9 +132,40 @@ public class ModelsContext {
                     listaPlaylists.add((Playlist)e);
             }
         }
+        c.setPlaylist(listaPlaylists);
         
         return c;
     }
+
+
+    // @Bean
+    // @Scope("prototype")
+    // public Playlist playlist(Map<String, String> mappa){
+    //     Playlist p = new Playlist();
+    //     Long id = 0L;
+    //     Long id_account = 0L;
+
+    //     if(mappa.containsKey("id")) {
+    //         id = Long.parseLong(mappa.get("id"));
+    //     }
+    //     p.setId(id);
+    //     p.setNome_playlist(mappa.get("nome_playlist"));
+    //     if(mappa.containsKey("id_account")) {
+    //         id_account = Long.parseLong(mappa.get("id_account"));
+    //     }
+    //     p.setId_account((Account)daoAccount.cercaPerId(id_account));
+        //p.setDataCreazione(Timestamp.valueOf(mappa.get("data_creazione")));
+        //List<Canzone> listaCanzoni = new ArrayList<>();
+        //Map<Long, Entity> result = daoPlaylist.readByIdPlaylist(p.getId());
+       // for(Entity e : result.values()){
+         //   if(e instanceof Canzone){
+                //listaCanzoni.add((Canzone)e);
+         //   }
+       // }
+       // p.setCanzoni(listaCanzoni);
+       // return p;
+
+    //}
 
         
 }
