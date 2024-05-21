@@ -1,6 +1,9 @@
 package com.generation.projectwork114.configuration;
 
+import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +13,15 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
 import com.generation.projectwork114.dao.DaoAccount;
+import com.generation.projectwork114.dao.DaoAlbum;
 import com.generation.projectwork114.dao.DaoArtista;
+import com.generation.projectwork114.dao.DaoPlaylist;
 import com.generation.projectwork114.models.Account;
 import com.generation.projectwork114.models.Album;
 import com.generation.projectwork114.models.Artista;
+import com.generation.projectwork114.models.Canzone;
+import com.generation.projectwork114.models.Entity;
+import com.generation.projectwork114.models.Playlist;
 
 @Configuration
 public class ModelsContext {
@@ -23,6 +31,12 @@ public class ModelsContext {
 
     @Autowired
     private DaoArtista daoArtista;
+
+    @Autowired
+    private DaoAlbum daoAlbum;
+
+    @Autowired
+    private DaoPlaylist daoPlaylist;
 
 
     @Bean
@@ -87,6 +101,39 @@ public class ModelsContext {
         }
         a.setId_artista((Artista)daoArtista.cercaPerId(id_artista));
         return a;
+    }
+
+    @Bean
+    @Scope("prototype")
+    public Canzone canzone(Map<String, String> mappa){
+
+        Canzone c = new Canzone();
+        Long id = -1L;
+        Long id_album = 0L;
+
+        if(mappa.containsKey("id")) {
+            id = Long.parseLong(mappa.get("id"));
+        }
+        c.setId(id);
+        c.setTitolo_canzone(mappa.get("titolo_canzone"));
+        c.setDurata(mappa.get("durata"));
+        if(mappa.containsKey("id_album")) {
+            id_album = Long.parseLong(mappa.get("id_album"));
+        }
+        c.setId_album((Album)daoAlbum.cercaPerId(id_album));
+        c.setPercorso_canzone(mappa.get("percorso_canzone"));
+        c.setTesti(mappa.get("testi"));
+        c.setNumero_ascolti(Integer.parseInt(mappa.get("numero_ascolti")));
+        
+        List<Playlist> listaPlaylists = new ArrayList<>();
+        Map<Long, Entity> result = daoPlaylist.readByIdCanzone(c.getId());
+            for(Entity e : result.values()){
+                if(e instanceof Playlist){
+                    listaPlaylists.add((Playlist)e);
+            }
+        }
+        
+        return c;
     }
 
         
