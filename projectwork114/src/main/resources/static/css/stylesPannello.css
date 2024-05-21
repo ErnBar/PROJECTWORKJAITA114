@@ -1,0 +1,133 @@
+/* Spotify Color Palette */
+:root {
+    --spotify-green: #1DB954;
+    --spotify-black: #191414;
+    --spotify-white: #FFFFFF;
+    --spotify-light-gray: #B3B3B3;
+    --spotify-dark-gray: #282828;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--spotify-dark-gray);
+    color: var(--spotify-white);
+    margin: 0;
+    padding: 0;
+    
+}
+
+header {
+    background-color: var(--spotify-black);
+    padding: 1em;
+    color: var(--spotify-white);
+}
+
+nav h1 {
+    margin: 0;
+}
+
+.home-link {
+    text-decoration: none;
+    color: var(--spotify-green);
+}
+
+main {
+    padding: 2em;
+}
+
+.user-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2em;
+    background-color: var(--spotify-black);
+}
+
+.user-table th, .user-table td {
+    border: 1px solid var(--spotify-light-gray);
+    padding: 0.5em;
+    text-align: left;
+}
+
+.user-table th {
+    background-color: var(--spotify-green);
+    color: var(--spotify-white);
+}
+
+.user-table tr:nth-child(even) {
+    background-color: var(--spotify-dark-gray);
+}
+
+.user-table tr:hover {
+    background-color: var(--spotify-light-gray);
+}
+
+.modifica-btn, .elimina-btn {
+    padding: 0.5em 1em;
+    margin: 0.2em 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.modifica-btn {
+    background-color: var(--spotify-green);
+    color: var(--spotify-black);
+    border-radius: 5px;
+}
+
+.elimina-btn {
+    background-color: #E53935;
+    color: var(--spotify-white);
+    border-radius: 5px;
+}
+
+.modifica-btn:hover, .elimina-btn:hover {
+    opacity: 0.8;
+    border-radius: 5px;
+}
+
+aside {
+    background-color: var(--spotify-black);
+    padding: 2em;
+    border: 1px solid var(--spotify-light-gray);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+aside form {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+aside form input, aside form button {
+    margin: 0.5em 0;
+    padding: 0.5em;
+    border: 1px solid var(--spotify-light-gray);
+    border-radius: 4px;
+}
+
+.chiudi-btn, .submit-btn {
+    cursor: pointer;
+    background-color: var(--spotify-green);
+    color: var(--spotify-black);
+}
+
+footer {
+    background-color: var(--spotify-dark-gray);
+    color: var(--spotify-white);
+    text-align: center;
+    padding-top:300;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+table {
+    border-collapse: separate; 
+    border-spacing: 0; 
+    border-radius: 10px; 
+    overflow: hidden;
+}
+
+

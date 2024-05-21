@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/pannelloControlloUtente.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/stylesPannello.css">
+    <title>Area Utente</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1><a href="/" class="home-link">Torna alla Home</a></h1>
+            <audio controls autoplay name="myAudio" id="myAudio">
+                <source src="/audio/Its My Life  Sri Lankan Version  Sandaru Sathsara (1).mp3" type="audio/mpeg">
+            </audio>
+        </nav>
+    </header>
+    <main>
+        <section class="user-table">
+            <table>
+                <thead>
+                    <th th:if="${isAdmin}">ID</th>
+                    <th>USERNAME</th>
+                    <th>NOME</th>
+                    <th>EMAIL</th>
+                    <th th:if="${isAdmin}">PASSWORD</th>
+                    <th>RUOLO</th>
+                    <th>DATA REGISTRAZIONE</th>
+                    <th th:if="${isAdmin}">MODIFICA</th>
+                    <th th:if="${isAdmin}">ELIMINA</th>
+                </thead>
+                <tbody>
+                    <tr th:each="account : ${accounts}">
+                        <td th:if="${isAdmin}" th:text="${account.id}"></td>
+                        <td th:text="${account.username}"></td>
+                        <td th:text="${account.nome}"></td>
+                        <td th:text="${account.email}"></td>
+                        <td th:if="${isAdmin}" th:text="${account.password}"></td>
+                        <td th:text="${account.ruolo}"></td>
+                        <td th:text="${#strings.substring(account.data_registrazione, 0, #strings.length(account.data_registrazione)-2)}"></td>
+                        <td th:if="${isAdmin}">
+                            <button
+                                th:modifica-id="${account.id}"
+                                th:modifica-username="${account.username}"
+                                th:modifica-nome="${account.nome}"
+                                th:modifica-email="${account.email}"
+                                th:modifica-password="${account.password}"
+                                th:modifica-ruolo="${account.ruolo}"
+                                class="modifica-btn"
+                                onclick="modificaAccount(this)">
+                                Modifica
+                            </button>
+                        </td>
+                        <td th:if="${isAdmin}">
+                            <a th:href="|/elimina-account?idAccount=${account.id}|">
+                                <button class="elimina-btn">Elimina</button>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <aside id="modifica" hidden>
+            <form id="modifica-account" th:if="${isAdmin}" action="/modifica-account" method="post">
+                <input type="text" id="modifica-id" name="id" placeholder="ID" readonly>
+                <input type="text" id="modifica-username" name="username" placeholder="Username">
+                <input type="text" id="modifica-nome" name="nome" placeholder="Nome">
+                <input type="text" id="modifica-email" name="email" placeholder="Email">
+                <input type="text" id="modifica-password" name="password" placeholder="Password">
+                <input type="text" id="modifica-ruolo" name="ruolo" placeholder="Ruolo">
+                <button id="chiudiModifica" class="chiudi-btn" onclick="chiudiFormModifica()">Chiudi</button>
+                <input type="submit" class="submit-btn" value="Modifica">
+            </form>
+        </aside>
+    </main>
+    <footer>
+        <p>&copy; 2024 . All rights reserved.</p>
+    </footer>
+</body>
+</html>

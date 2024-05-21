@@ -1,0 +1,163 @@
+@keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    50% { background-position: 100% 0; }
+    100% { background-position: 0 0; }
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(270deg, #181818, #282828, #1db954, #282828, #181818);
+    background-size: 1800% 1800%;
+    animation: animatedBackground 14s ease infinite;
+    color: #fff;
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-container {
+    background-color: #282828;
+    padding: 40px;
+    border-radius: 4px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+h1 { 
+    text-align: center; 
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 8px;
+    background-color: #333;
+    color: #fff;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #1db954;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.registration-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.registration-link {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #1ed760;
+}
+
+.error-message {
+    color: #e74c3c;
+    margin-top: 20px;
+}
+
+.registration-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.registration-link {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.registration-link:hover {
+    text-decoration: underline;
+}
+
+.gif-background-left, .gif-background-right {
+    background-image: url('/backgrounds/UnjOZz-ezgif.com-gif-maker.gif'); /* Sostituisci con il percorso effettivo della tua GIF */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 400px; /* Larghezza della GIF */
+    height: 100px; /* Altezza della GIF */
+    flex: none; /* Non permette alle GIF di crescere o restringersi */
+}
+
+.modal {
+    display: none; /* Nascosto di default */
+    position: fixed; /* Rimane fermo anche se la pagina viene scrollata */
+    z-index: 1; /* Si trova sopra tutto il resto */
+    left: 0;
+    top: 0;
+    width: 100%; /* Larghezza piena */
+    height: 100%; /* Altezza piena */
+    overflow: auto; /* Se necessario, aggiunge la scrollbar */
+    background-color: rgb(0,0,0); /* Colore sfondo */
+    background-color: rgba(0,0,0,0.4); /* Sfondo nero con opacità */
+}
+
+.modal-content {
+    background-color: #282828;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px; /* Angoli arrotondati */
+    border-color: #282828;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aggiunge ombra per un effetto di profondità */
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer {
+    
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(270deg, #181818, #282828, #1db954, #282828, #181818);
+    background-size: 1800% 1800%;
+    animation: animatedBackground 14s ease infinite;
+    color: #fff;
+    text-align: center;
+    padding-top:300;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

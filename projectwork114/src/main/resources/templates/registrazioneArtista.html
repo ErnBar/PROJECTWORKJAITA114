@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione Artista</title>
+    <link rel="stylesheet" href="css/styleRegistrazione.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registrazione per Artisti</h1>
+        <form action="/register-artista" name="registrazioneartista" th:object="${cantante}" method="post" class="form-registrazione">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Username" th:field="${cantante.username}" required>
+            </div>
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome" th:field="${cantante.nome}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" th:field="${cantante.email}" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" th:field="${cantante.password}" required>
+            </div>
+            <div class="form-group">
+                <label for="confermaPassword">Conferma Password</label>
+                <input type="password" id="confermaPassword" placeholder="Conferma Password" name="confermaPassword" required>
+            </div>
+            <div class="form-group">
+                <label for="ruolo">Ruolo</label>
+                <select id="ruolo" name="ruolo" th:field="${cantante.ruolo}" required>
+                    <option value="Artista">Artista</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nome_artista">Nome Artista</label>
+                <input type="text" id="nome_artista" name="nome_artista" placeholder="Nome Artista" th:field="${cantante.nome_artista}" required>
+            </div>
+            <div class="form-group">
+                <label for="genere_musicale">Genere Musicale</label>
+                <input type="text" id="genere_musicale" name="genere_musicale" placeholder="Genere Musicale" th:field="${cantante.genere_musicale}" required>
+            </div>
+            <div class="form-group">
+                <label for="biografia">Biografia</label>
+                <textarea id="biografia" name="biografia" placeholder="Biografia" th:field="${cantante.biografia}" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" value="Registrati">Registrati</button>
+            </div>
+            <div th:if="${error}" class="error-message">
+                <p th:text="${error}"></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
