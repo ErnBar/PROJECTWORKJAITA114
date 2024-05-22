@@ -98,4 +98,10 @@ public class AppController {
         session.setAttribute("utente", null);
         return "redirect:/";
     }
+
+
+    @GetMapping("/about-us")
+    public String aboutUs(){
+        return "aboutUs.html";
+    }
 }

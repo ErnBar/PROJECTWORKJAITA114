@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.generation.projectwork114.models.Canzone;
 import com.generation.projectwork114.services.ServiceAccount;
+import com.generation.projectwork114.services.ServiceAlbum;
 import com.generation.projectwork114.services.ServiceCanzone;
 
 import jakarta.servlet.http.HttpSession;
@@ -21,6 +22,9 @@ public class SongController {
 
     @Autowired
     private ServiceAccount serviceAccount;
+
+    @Autowired
+    private ServiceAlbum serviceAlbum;
 
 
     @GetMapping("/song-player")
