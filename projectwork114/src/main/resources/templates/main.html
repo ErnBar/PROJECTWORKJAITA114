@@ -13,23 +13,32 @@
     <h2><a href="/pannello-controllo" th:text="${actualUser}" th:if="${isAdmin}"></a></h2>
     <h2><a href="/pannello-controllo-utente" th:text="${actualUser}" th:if="${isUtente}"></a></h2>
     <a href="/logout">Logout</a>
-    <a href="/song-player">WebPlayer</a>
-    <div class="" id="album-container">
-        <div id="photo-container">
-            <img src="/backgrounds/CoverStarry.jpg">
+    <div id="album-container">
+        <div class="image-container">
+            <a href="/song-player">
+                <img src="/backgrounds/CoverStarry.jpg" id="albumStarry">
+                <h4 id="titoloAlbum">The Haunting</h4>
+            </a>
         </div>
-        <table id="album-table">
-            <thead>
-                <th>Titolo Canzone</th>
-                <th>Durata</th>
-            </thead>
-            <tbody>
-                <tr th:each="song : ${albumSongs}">
-                    <td th:text="${song.titolo_canzone}"></td>
-                    <td th:text="${#strings.substring(song.durata, 3)}"></td>
-                </tr>    
-            </tbody>                
+        <div id="albumSongs" class="table-container">
+            <table id="album-table">
+                <thead>
+                    <tr>
+                        <th>Titolo Canzone</th>
+                        <th>Durata</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="song : ${albumSongs}">
+                        <td th:text="${song.titolo_canzone}"></td>
+                        <td th:text="${#strings.substring(song.durata, 3)}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+    
+
     <footer>
         <div id="divPlayer" class="custom-audio-player">
             <input type="file" name="file" id="file" class="inputfile" accept="audio/mp3" />

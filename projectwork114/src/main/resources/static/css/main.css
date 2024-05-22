@@ -156,6 +156,61 @@ footer {
     font-family: monospace;
 }
 
+#album-container {
+    display: flex;
+    align-items: flex-start; /* Allinea verticalmente la tabella e l'immagine */
+}
+
+.image-container {
+    flex: 0 0 auto; /* L'immagine mantiene la sua dimensione */
+    max-width: 150px; /* Limita ulteriormente la larghezza massima dell'immagine */
+    margin-left: 20px; /* Spazio tra il bordo sinistro della pagina e l'immagine */
+    margin-right: 10px; /* Spazio ridotto tra l'immagine e la tabella */
+}
+
+#albumStarry {
+    width: 89%; /* Mantiene la proporzione dell'immagine */
+    height: auto; /* Adatta l'altezza automaticamente */
+    border-radius: 10px; /* Arrotonda leggermente i bordi dell'immagine */
+}
+
+#titoloAlbum {
+    font-size: 12px;
+    margin-top: -3px;
+    margin-left: 25px;
+}
+
+.table-container {
+    flex: 1; /* La tabella occupa il resto dello spazio disponibile */
+    max-width: 20%; /* Riduce la larghezza della tabella a meno di metà pagina */
+}
+
+#album-table {
+    width: 100%; /* La tabella occupa tutta la larghezza disponibile nel contenitore */
+    border-collapse: separate; /* Mantiene i bordi separati per arrotondarli */
+    border-radius: 10px; /* Arrotonda i bordi della tabella */
+    overflow: hidden; /* Nasconde gli angoli interni per l'arrotondamento */
+}
+
+#album-table th, #album-table td {
+    border: 1px solid #ddd; /* Bordo delle celle */
+    padding: 8px; /* Padding delle celle */
+}
+
+#album-table th {
+    background-color: #f2f2f2; /* Colore di sfondo dell'intestazione */
+    text-align: left; /* Allineamento del testo a sinistra */
+    border-radius: 10px 10px 0 0; /* Arrotonda solo gli angoli superiori dell'intestazione */
+}
+
+#album-table tbody tr:last-child td {
+    border-radius: 0 0 10px 10px; /* Arrotonda solo gli angoli inferiori delle celle dell'ultima riga */
+}
+
+
+
+
+
 
 
 
