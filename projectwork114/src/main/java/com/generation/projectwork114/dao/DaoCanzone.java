@@ -98,5 +98,17 @@ public class DaoCanzone implements IDao{
         }
         return ris;
     }
+
+    public Map<Long, Entity> readByIdAlbum(Long idAlbum) {
+        String query = "select * from canzoni where id_album=?";
+        List<Map<String, String>> result = database.executeQuery(query, String.valueOf(idAlbum));
+        Map<Long, Entity> ris = new HashMap<>();
+
+        for(Map<String, String> params : result){
+            Canzone c = context.getBean(Canzone.class, params);
+            ris.put(Long.parseLong(params.get("id")), c);
+        }
+        return ris;
+    }
     
 }

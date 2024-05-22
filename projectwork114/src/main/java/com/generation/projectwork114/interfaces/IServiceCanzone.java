@@ -17,4 +17,6 @@ public interface IServiceCanzone {
     public void deleteCanzone(Long id);
 
     public List<Canzone> findByNomeCanzone(String nomeCanzone);
+
+    List<Canzone> findByAlbum(Long idAlbum);
 }
