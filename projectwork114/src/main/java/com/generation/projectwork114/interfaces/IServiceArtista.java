@@ -15,4 +15,7 @@ public interface IServiceArtista {
     public void update(Map<String,String> params);
 
     public void delete(Long id);
+
+    List<Artista> findByNome(String nome);
+
 }
