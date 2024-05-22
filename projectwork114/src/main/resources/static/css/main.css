@@ -207,6 +207,30 @@ footer {
     border-radius: 0 0 10px 10px; /* Arrotonda solo gli angoli inferiori delle celle dell'ultima riga */
 }
 
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Center the header text */
+h1 {
+    text-align: center;
+}
+
+/* Flex container for links */
+.links {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style the links (optional) */
+.links a {
+    text-decoration: none;
+    color: #333;
+    margin-right: 10px;
+}
 
 
 
