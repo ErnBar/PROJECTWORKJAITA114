@@ -25,7 +25,7 @@ public class StefanoController {
     @Autowired
     private ServiceAlbum serviceAlbum;
 
-    @GetMapping("/artistaByNome")
+    @GetMapping("/artista-bynome")
     public String getArtistaByNome(@RequestParam(name="nome", defaultValue = "") String nome, Model model) {
         Artista artista = serviceArtista.findByNome(nome);
         model.addAttribute("artista", artista);

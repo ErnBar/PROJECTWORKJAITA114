@@ -20,6 +20,11 @@
                     <h4><a href="/pannello-controllo-utente" th:text="${actualUser}" th:if="${isUtente}"></a></h4>
                     <a href="/logout">Logout</a>
                 </div>
+                <div class="cercaNome">
+                    <p><button onclick="cercaNome()">Cerca</button>
+                        <input type="text" id="cerca-nome" name="cerca-nome" placeholder="Cerca Artista">
+                    </p>
+                </div>
             </div>
         </nav>    
     </header>

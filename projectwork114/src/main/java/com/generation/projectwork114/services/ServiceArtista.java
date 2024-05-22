@@ -65,7 +65,7 @@ public class ServiceArtista implements IServiceArtista{
         List<Artista> artisti = new ArrayList<>();
         for(Entity e : ris) {
             Artista a = (Artista) e;
-            if(a.getNome().equalsIgnoreCase(nome))
+            if(a.getNome_artista().equalsIgnoreCase(nome))
                 artisti.add(a);
         }
         if(artisti.size() > 0)

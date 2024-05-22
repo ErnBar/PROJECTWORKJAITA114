@@ -52,3 +52,12 @@ document.addEventListener('DOMContentLoaded', function () {
         return `${minutes}:${secondsLeft < 10 ? '0' : ''}${secondsLeft}`;
     }
 });
+
+
+function cercaNome(){
+    var nome = document.getElementById("cerca-nome");
+    window.location.href = "/artista-bynome?nome=" + nome.value;
+    if(nome.value == ""){
+        window.location.href = "/errore";
+    }
+}
