@@ -60,7 +60,7 @@ public class ServiceArtista implements IServiceArtista{
     }
 
     @Override
-    public List<Artista> findByNome(String nome) {
+    public Artista findByNome(String nome) {
         List<Entity> ris = daoArtista.readAll();
         List<Artista> artisti = new ArrayList<>();
         for(Entity e : ris) {
@@ -68,8 +68,9 @@ public class ServiceArtista implements IServiceArtista{
             if(a.getNome().equalsIgnoreCase(nome))
                 artisti.add(a);
         }
-
-        return artisti;
+        if(artisti.size() > 0)
+            return artisti.get(0);
+        return null;   
     }
 
 

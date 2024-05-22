@@ -13,10 +13,10 @@
         <nav>
             <h1>Benvenuto!!</h1>
             <div class="links">
-                <div>
+                <div class="admin-panel">
                     <h4><a href="/pannello-controllo" th:text="${actualUser}" th:if="${isAdmin}"></a></h4>
                 </div>
-                <div>
+                <div class="user-panel">
                     <h4><a href="/pannello-controllo-utente" th:text="${actualUser}" th:if="${isUtente}"></a></h4>
                     <a href="/logout">Logout</a>
                 </div>
