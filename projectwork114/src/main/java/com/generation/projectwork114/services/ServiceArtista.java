@@ -58,5 +58,20 @@ public class ServiceArtista implements IServiceArtista{
     public void delete(Long id) {
         daoArtista.delete(id);
     }
+
+    @Override
+    public List<Artista> findByNome(String nome) {
+        List<Entity> ris = daoArtista.readAll();
+        List<Artista> artisti = new ArrayList<>();
+        for(Entity e : ris) {
+            Artista a = (Artista) e;
+            if(a.getNome().equalsIgnoreCase(nome))
+                artisti.add(a);
+        }
+
+        return artisti;
+    }
+
+
     
 }
