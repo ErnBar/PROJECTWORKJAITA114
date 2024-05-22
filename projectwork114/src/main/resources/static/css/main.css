@@ -207,30 +207,46 @@ footer {
     border-radius: 0 0 10px 10px; /* Arrotonda solo gli angoli inferiori delle celle dell'ultima riga */
 }
 
-/* Reset default margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+header {
+    padding: 0 20px;
+    background-color: #FFD700;
 }
 
-/* Center the header text */
-h1 {
-    text-align: center;
-}
-
-/* Flex container for links */
-.links {
+nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-/* Style the links (optional) */
-.links a {
-    text-decoration: none;
-    color: #333;
-    margin-right: 10px;
+nav h1 {
+    margin: 0;
 }
+
+.links {
+    display: flex;
+    align-items: center;
+}
+
+.admin-panel,
+.user-panel {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.user-panel a {
+    margin-left: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h4 {
+    margin: 0;
+}
+
 
 
 

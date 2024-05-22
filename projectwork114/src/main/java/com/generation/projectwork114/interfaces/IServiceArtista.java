@@ -16,6 +16,6 @@ public interface IServiceArtista {
 
     public void delete(Long id);
 
-    List<Artista> findByNome(String nome);
+    Artista findByNome(String nome);
 
 }
