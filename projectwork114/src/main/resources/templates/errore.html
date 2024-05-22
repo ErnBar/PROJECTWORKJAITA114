@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/errore.css" type="text/css">
+    <title>ERRORE</title>
+</head>
+<body>
+
+    <h1>Errore</h1>
+    <h3><span th:text="${error}"></span></h3>
+    <video controls autoplay loop id="video">
+    <source src="backgrounds/twittervid.com_levanteooc_8dd224.mp4" type="video/mp4">
+    </video>
+
+    <form action="/formLogin" method="get" id="form">
+        <input type="submit" value="HOME">
+    </form>
+
+    
+</body>
+</html>

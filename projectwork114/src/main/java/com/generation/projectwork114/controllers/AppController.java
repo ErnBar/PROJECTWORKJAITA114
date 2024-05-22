@@ -108,4 +108,9 @@ public class AppController {
     public String aboutUs(){
         return "aboutUs.html";
     }
+
+    @GetMapping("/errore")
+    public String errore(){
+        return "errore.html";
+    }
 }
