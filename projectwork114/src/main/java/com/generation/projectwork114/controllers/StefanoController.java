@@ -28,6 +28,9 @@ public class StefanoController {
     @GetMapping("/artista-bynome")
     public String getArtistaByNome(@RequestParam(name="nome", defaultValue = "") String nome, Model model) {
         Artista artista = serviceArtista.findByNome(nome);
+        if (artista == null) {
+            return "errore.html";
+        }
         model.addAttribute("artista", artista);
         return "stefano.html";
     }
