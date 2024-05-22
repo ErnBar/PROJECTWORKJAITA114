@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: url("/backgrounds/margheriteCheGirano.gif") repeat, radial-gradient(circle, rgba(255,215,0,1) 12%, rgba(255,255,255,1) 100%) no-repeat top center fixed;
+    background-blend-mode: multiply; /* O un altro valore a tua scelta */
+    color: #ffffff;
+    text-align: center;
+}
+
+#h1 {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 200%;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+/* Stile per il pulsante di login */
+#form {
+    background-color: black;
+    color: white;
+    border: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  /* Stile per il pulsante quando si passa sopra con il mouse */
+  #form:hover {
+    background-color: white;
+    color: yellow;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
