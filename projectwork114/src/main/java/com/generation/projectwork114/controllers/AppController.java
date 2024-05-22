@@ -1,5 +1,7 @@
 package com.generation.projectwork114.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.generation.projectwork114.models.Account;
+import com.generation.projectwork114.models.Canzone;
 import com.generation.projectwork114.services.ServiceAccount;
+import com.generation.projectwork114.services.ServiceCanzone;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -16,6 +20,9 @@ import jakarta.servlet.http.HttpSession;
 public class AppController {
     @Autowired
     private ServiceAccount serviceAccount;
+
+    @Autowired
+    private ServiceCanzone serviceCanzone;
     
     @GetMapping("/")
     public String home(HttpSession session,Model model){
@@ -27,12 +34,6 @@ public class AppController {
             if (utente!=null && utente instanceof Account) {
                 Account u = (Account) utente;
                 actualUser += u.getUsername();
-                // if (u.getRuolo().equalsIgnoreCase("admin")) {
-                //     actualUser = "Admin: "+u.getUsername(); 
-                // }
-                // else if (u.getRuolo().equalsIgnoreCase("artista")) {
-                //     actualUser = "Artista: "+u.getUsername();
-                // }
             }
         boolean isAdmin = false;
         boolean isUtente = false;
@@ -50,6 +51,9 @@ public class AppController {
         model.addAttribute("isUtente", isUtente);
             
         model.addAttribute("actualUser", actualUser);
+
+        List<Canzone> canzoni = serviceCanzone.findByAlbum(1L);
+        model.addAttribute("albumSongs", canzoni);
         return "main.html";
         }
     }

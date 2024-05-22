@@ -54,15 +54,6 @@ footer {
     
 }
 
-#song-player{
-    text-align: left;
-    font-size: 10px;
-    margin-left: 4%;
-}
-
-#divPlayer{
-    margin-bottom: -4%;
-}
 
 .inputfile {
 	width: 0.1px;
@@ -74,12 +65,12 @@ footer {
 }
 
 .inputfile + label {
-    font-size: 0.75em;
+    font-size: 0.60em;
     font-weight: 700;
     color: white;
     background-color: black;
     display: inline-block;
-    margin-right: 89%;
+    margin-right: 92%;
 }
 
 .inputfile:focus + label,
@@ -126,9 +117,6 @@ footer {
     border-radius: 10px;
 }
 
-.inputfile {
-    display: none;
-}
 
 .file-label {
     background-color: #007bff;
@@ -146,6 +134,7 @@ footer {
     display: flex;
     align-items: center;
     margin-top: 20px;
+    margin-bottom: -3%;
 }
 
 #playPauseBtn {
@@ -166,6 +155,7 @@ footer {
 #currentTime, #duration {
     font-family: monospace;
 }
+
 
 
 

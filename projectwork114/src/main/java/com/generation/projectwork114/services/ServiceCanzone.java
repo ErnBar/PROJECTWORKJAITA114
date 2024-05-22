@@ -20,7 +20,7 @@ import lombok.Data;
 @Service
 @Data
 public class ServiceCanzone implements IServiceCanzone{
-        @Qualifier("daoCanzone")
+    @Qualifier("daoCanzone")
     private final DaoCanzone daoCanzone;
 
     private final ApplicationContext applicationContext;
@@ -72,6 +72,18 @@ public class ServiceCanzone implements IServiceCanzone{
                 canzone.add(c);
             }
         } return canzone; 
+    }
+
+    @Override
+    public List<Canzone> findByAlbum(Long idAlbum) {
+        Map<Long, Entity> ris = daoCanzone.readByIdAlbum(idAlbum);
+        List<Canzone> canzoni = new ArrayList<>();
+        for (Entity e : ris.values()) {
+            if (e instanceof Canzone) {
+                canzoni.add((Canzone) e);
+            }
+        }
+        return canzoni;
     }
 
 
