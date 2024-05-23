@@ -38,7 +38,7 @@ public class StefanoController {
         boolean isAdmin = false;
         if (utente != null && utente instanceof Account) {
             Account u = (Account) utente;
-            if (u.getRuolo().equals("admin")||u.getRuolo().equals("artista")) {
+            if (u.getRuolo().equalsIgnoreCase("admin")||u.getRuolo().equalsIgnoreCase("artista")) {
                 isAdmin = true;
             }
         }
@@ -47,10 +47,14 @@ public class StefanoController {
         if (artista == null) {
             return "errore.html";
         }
-        List<Album> album = serviceAlbum.findByIdArtista(artista.getId());
-        List<Canzone> canzoni = serviceCanzone.findByAlbum(album.get(0).getId());
-        model.addAttribute("albumSongs", canzoni);
-
+        boolean isStarry = false;
+        if (artista.getNome_artista().equalsIgnoreCase("starry")) {
+            List<Album> album = serviceAlbum.findByIdArtista(artista.getId());
+            List<Canzone> canzoni = serviceCanzone.findByAlbum(album.get(0).getId());
+            model.addAttribute("albumSongs", canzoni);
+            isStarry = true;
+        }
+        model.addAttribute("isStarry", isStarry);
         model.addAttribute("artista", artista);
         return "stefano.html";
     }

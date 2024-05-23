@@ -15,5 +15,5 @@ public class Canzone extends Entity{
     private String percorso_canzone;
     private String testi;
     private int numero_ascolti;
-    private List<Playlist> playlist;//Per la tabella associativa
+    // private List<Playlist> playlist;//Per la tabella associativa
 }
