@@ -36,17 +36,18 @@ public class StefanoController {
     public String getArtistaByNome(@RequestParam(name="nome", defaultValue = "") String nome, Model model,HttpSession session) {
         Object utente = session.getAttribute("utente");
         boolean isAdmin = false;
-        if (utente != null && utente instanceof Account) {
-            Account u = (Account) utente;
-            if (u.getRuolo().equalsIgnoreCase("admin")||u.getRuolo().equalsIgnoreCase("artista")) {
-                isAdmin = true;
-            }
-        }
-        model.addAttribute("isAdmin", isAdmin);
+        
         Artista artista = serviceArtista.findByNome(nome);
         if (artista == null) {
             return "errore.html";
         }
+        if (utente != null && utente instanceof Account) {
+            Account u = (Account) utente;
+            if (u.getId()==artista.getId()||u.getRuolo().equalsIgnoreCase("admin")) {
+                isAdmin = true;
+            }
+        }
+        model.addAttribute("isAdmin", isAdmin);
         boolean isStarry = false;
         if (artista.getNome_artista().equalsIgnoreCase("starry")) {
             List<Album> album = serviceAlbum.findByIdArtista(artista.getId());
