@@ -47,9 +47,7 @@ public class StefanoController {
         if (artista == null) {
             return "errore.html";
         }
-        Album album = serviceAlbum.getAlbumById(artista.getId());
-        List<Canzone> canzoni = serviceCanzone.findByAlbum(album.getId());
-        model.addAttribute("albumSongs", canzoni);
+        
 
         model.addAttribute("artista", artista);
         return "stefano.html";
