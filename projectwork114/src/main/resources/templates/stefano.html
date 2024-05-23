@@ -70,5 +70,31 @@
             </form>
         </aside>
     </main>
+    <div id="albumSongs" class="table-container">
+        <table id="album-table">
+            <thead>
+                <tr>
+                    <th>Titolo Canzone</th>
+                    <th>Durata</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="song : ${albumSongs}">
+                    <td th:text="${song.titolo_canzone}"></td>
+                    <td th:text="${#strings.substring(song.durata, 3)}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="Inserisci" th:if="${isAdmin}">
+        <h4>Inserimento di una nuova Canzone</h4>
+        <form id="formCanzone" action="/aggiungi-canzone" method="post">
+            <label for="nomeCanzone">Nome Canzone</label>
+            <input type="text" id="nomeCanzone" name="nomeCanzone" required>
+            <label for="durataCanzone">Durata</label>
+            <input type="time" id="durataCanzone" name="durataCanzone" required>
+            <button type="submit" th:if="${isAdmin}">Inserisci</button>
+        </form>
+    </div>
 </body>
 </html>

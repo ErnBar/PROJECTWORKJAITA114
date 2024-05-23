@@ -18,6 +18,8 @@ public interface IServiceAlbum {
 
     List<Album> findByTitolo(String titolo);
 
+    List<Album> findByIdArtista(Long idArtista);
+
     
     
 }

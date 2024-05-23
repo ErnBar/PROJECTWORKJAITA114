@@ -1,6 +1,7 @@
 package com.generation.projectwork114.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.generation.projectwork114.database.Database;
 import com.generation.projectwork114.interfaces.IDao;
 import com.generation.projectwork114.models.Album;
+import com.generation.projectwork114.models.Canzone;
 import com.generation.projectwork114.models.Entity;
 
 import lombok.Data;
@@ -75,6 +77,18 @@ public class DaoAlbum implements IDao{
         Map<String,String> m = ris.get(0);
         Album a = context.getBean(Album.class, m);
         return a;
+    }
+
+    public Map<Long, Entity> readByIdArtista(Long idArtista) {
+        String query = "select*from album a inner join artisti ar on a.id_artista=ar.id where ar.id=?;";
+        List<Map<String, String>> result = database.executeQuery(query, String.valueOf(idArtista));
+        Map<Long, Entity> ris = new HashMap<>();
+
+        for(Map<String, String> params : result){
+            Album a = context.getBean(Album.class, params);
+            ris.put(Long.parseLong(params.get("id")), a);
+        }
+        return ris;
     }
     
 }
