@@ -113,4 +113,9 @@ public class AppController {
     public String errore(){
         return "errore.html";
     }
+
+    @GetMapping("/contact-us")
+    public String contactUs(){
+        return "contactUs.html";
+    }
 }
