@@ -31,13 +31,13 @@ public class DaoCanzone implements IDao{
         Canzone c = context.getBean("canzone",Canzone.class);
         if (e instanceof Canzone) {
             c = (Canzone) e;
-            database.executeUpdate(query, c.getTitolo_canzone(), c.getDurata(), 
+            ris=database.executeUpdate(query, c.getTitolo_canzone(), c.getDurata(), 
                                     String.valueOf(c.getId_album()), c.getPercorso_canzone(), c.getTesti(), 
                                     String.valueOf(c.getNumero_ascolti()));
-            query = "INSERT INTO canzoninellaplaylist (id_canzone, id_playlist) VALUES (?, ?)";
-            for(Playlist p : c.getPlaylist()) {
-                database.executeUpdate(query, String.valueOf(c.getId()), String.valueOf(p.getId()));
-            }
+            // query = "INSERT INTO canzoninellaplaylist (id_canzone, id_playlist) VALUES (?, ?)";
+            // for(Playlist p : c.getPlaylist()) {
+            //     database.executeUpdate(query, String.valueOf(c.getId()), String.valueOf(p.getId()));
+            // }
         }
         return ris;
     }
