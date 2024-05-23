@@ -1,17 +1,22 @@
 package com.generation.projectwork114.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.generation.projectwork114.models.Account;
 import com.generation.projectwork114.models.Artista;
 import com.generation.projectwork114.services.ServiceAlbum;
 import com.generation.projectwork114.services.ServiceArtista;
 import com.generation.projectwork114.services.ServiceCanzone;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class StefanoController {
@@ -26,13 +31,28 @@ public class StefanoController {
     private ServiceAlbum serviceAlbum;
 
     @GetMapping("/artista-bynome")
-    public String getArtistaByNome(@RequestParam(name="nome", defaultValue = "") String nome, Model model) {
+    public String getArtistaByNome(@RequestParam(name="nome", defaultValue = "") String nome, Model model,HttpSession session) {
+        Object utente = session.getAttribute("utente");
+        boolean isAdmin = false;
+        if (utente != null && utente instanceof Account) {
+            Account u = (Account) utente;
+            if (u.getRuolo().equals("admin")||u.getRuolo().equals("artista")) {
+                isAdmin = true;
+            }
+        }
+        model.addAttribute("isAdmin", isAdmin);
         Artista artista = serviceArtista.findByNome(nome);
         if (artista == null) {
             return "errore.html";
         }
         model.addAttribute("artista", artista);
         return "stefano.html";
+    }
+
+    @PostMapping("/modifica-artista")
+    public String modificaAccount(@RequestParam Map<String, String> params){
+        serviceArtista.update(params);
+        return "redirect:/artista-bynome?nome="+params.get("nome_artista");
     }
         
     
