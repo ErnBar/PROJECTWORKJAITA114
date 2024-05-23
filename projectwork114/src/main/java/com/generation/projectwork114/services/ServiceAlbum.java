@@ -2,7 +2,7 @@ package com.generation.projectwork114.services;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.generation.projectwork114.dao.DaoAlbum;
 import com.generation.projectwork114.interfaces.IServiceAlbum;
 import com.generation.projectwork114.models.Album;
+import com.generation.projectwork114.models.Canzone;
 import com.generation.projectwork114.models.Entity;
 
 import lombok.Data;
@@ -66,6 +67,18 @@ public class ServiceAlbum implements IServiceAlbum{
                 albums.add(album);
             }
         }return albums;  
+    }
+
+    @Override
+    public List<Album> findByIdArtista(Long idArtista) {
+        Map<Long, Entity> ris = daoAlbum.readByIdArtista(idArtista);
+        List<Album> album = new ArrayList<>();
+        for (Entity e : ris.values()) {
+            if (e instanceof Album) {
+                album.add((Album) e);
+            }
+        }
+        return album;
     }
     
 }
