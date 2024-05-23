@@ -1,8 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Ubuntu", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: rgb(2,0,36);
+    background: url("/backgrounds/tumblr_mstilrbN8P1s5jjtzo1_500 (1).gif") repeat, radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 0%, rgba(222,245,250,1) 100%) no-repeat top center fixed;
 }
 
 header {
@@ -33,6 +34,7 @@ header nav a {
 
 #Home{
     margin-left: -250px;
+    font-weight: bold;
 
 }
 
@@ -45,6 +47,7 @@ header nav a {
     max-width: 1000px;
     margin: 80px auto 20px; /* Adjusted margin for fixed header */
     padding: 20px;
+    border-radius: 10px;
 }
 
 .photo {
@@ -54,6 +57,7 @@ header nav a {
     align-items: center;
     background-color: #eaeaea;
     padding: 20px;
+    border-radius: 10px;
 }
 
 .photo img {
@@ -75,6 +79,7 @@ h1 {
     margin-top: 20px;
     line-height: 1.6;
     font-size: small;
+    font-family: "Ubuntu", sans-serif;
 }
 
 
