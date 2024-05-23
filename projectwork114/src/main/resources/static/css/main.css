@@ -1,10 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 
 body, html {
     height: 100%;
     margin: 0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: #ffffff; /* Bianco */
+    font-family: 'Ubuntu' , sans-serif;
+    background: url("/backgrounds/gif2.gif") repeat, radial-gradient(circle, rgba(255,215,0,1) 12%, rgba(255,255,255,1) 100%) no-repeat top center fixed;
+    background-blend-mode: multiply; /* Bianco */
     color: #000; /* Nero */
+}
+
+header{
+    background: transparent
 }
 
 h1 { 
@@ -12,14 +20,18 @@ h1 {
     font-size: 24px;
     margin-bottom: 20px;
     color: #000; /* Nero */
+    margin-left: 20px;
 }
+
+
+
 
 
 
 footer {
     margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: #ffffff; /* Bianco */
+    background: transparent; /* Bianco */
     color: #000; /* Nero */
     text-align: center;
     padding: 20px 0; /* Aggiunge padding in alto e in basso */
@@ -35,27 +47,36 @@ footer {
 }
 
 .footer-link {
-    float: right;
     cursor: pointer;
-}
-
-.copyright {
-    text-align: center;
-    flex-grow: 1;
-}
-
-#fileInput{
-    margin-right: 84%;
-    font-size: 10px;
-    color: #b8b8b8;
+    color: #000; /* Nero */
+    margin-right: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background-color: #ffbf00;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    border: 1px solid #b8b8b8;
-    border-radius: 5px;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
     
 }
 
+.footer-link:hover {
+    background-color: #f5f5f5;
+}
+
+#copyright {
+    margin-left: 120px;
+    flex-grow: 1;
+}
 
 .inputfile {
+    background-color: transparent;
 	width: 0.1px;
 	height: 0.1px;
 	opacity: 0;
@@ -87,14 +108,6 @@ footer {
 	outline: -webkit-focus-ring-color auto 5px;
 }
 
-.custom-audio-player {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-}
 
 .inputfile {
     display: none;
@@ -112,7 +125,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: left;
-    background-color: #ffffff;
+    background-color: transparent;
     padding: 20px;
     border-radius: 10px;
 }
@@ -190,6 +203,13 @@ footer {
     border-collapse: separate; /* Mantiene i bordi separati per arrotondarli */
     border-radius: 10px; /* Arrotonda i bordi della tabella */
     overflow: hidden; /* Nasconde gli angoli interni per l'arrotondamento */
+    position: relative;
+    background-color: transparent;
+    
+}
+
+#album-table tbody {
+    background-color: #e9e6e6; /* Alterna il colore di sfondo delle righe */
 }
 
 #album-table th, #album-table td {
@@ -207,10 +227,6 @@ footer {
     border-radius: 0 0 10px 10px; /* Arrotonda solo gli angoli inferiori delle celle dell'ultima riga */
 }
 
-header {
-    padding: 0 20px;
-    background-color: #FFD700;
-}
 
 nav {
     display: flex;
@@ -219,12 +235,14 @@ nav {
 }
 
 nav h1 {
-    margin: 0;
+    margin-left: 20px;
+    align-self: center;
 }
 
 .links {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 .admin-panel,
@@ -247,6 +265,120 @@ h4 {
     margin: 0;
 }
 
+input{
+    margin: 10px;
+    color: rgb(34, 34, 34);
+    background-color: #f8cb04;
+    box-shadow: 0px 12px 24px -1px rgba(0, 0, 0,0.18);
+    border-color: rgba(7, 4, 14, 0);
+    border-radius: 50px;
+    padding: 10px;
+    outline: none;
+    text-align: center;
+    width: 200px;
+    transition: 0.5s;
+    font-family: 'Ubuntu', sans-serif;
+}
+  
+#cerca-nome:hover {
+    width: 240px;
+  }
+  
+#cerca-nome:focus {
+    width: 280px;
+  }
+
+#bottoneCerca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+  }
+
+  #bottoneCerca {
+    border-style: none;
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+    outline: none;
+    border-radius: 50%;
+    transition: 0.5s ease-in-out;
+    background-color: #f8cb04;
+    box-shadow: 0px 0px 3px #000000;
+    padding-right: 40px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 80px;
+    right: 90px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    border-style: none;
+    border-radius: 50%;
+    pointer-events: painted;
+    transition: 0.2s linear;
+    text-align: center;
+  }
+
+  #bottoneCerca:hover {
+    background-color: #f8cb04;
+    box-shadow: 0px 0px 10px #000000;
+    width: 5%;
+  }
+
+
+.image-container{
+    position: relative;
+  width: 190px;
+  height: 150px;
+  color: #fff;
+  transition: 0.5s;
+  cursor: pointer;
+}
+  
+.image-container:hover{
+    transform: translateY(-20px);
+}
+
+.image-container::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #ffbc00, #ffffff);
+    border-radius: 1.2em;
+  }
+
+  .image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ffbc00, #000000);
+    filter: blur(30px);
+  }
+
+  .image-container #albumStarry {
+    position: relative;
+    padding: 10px;
+    z-index: 10;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
 
 
 

@@ -6,11 +6,12 @@
     --dark-gray: #282828;
     --black: #000000;
     --red: #E53935;
+    background: url("/backgrounds/gif2.gif") repeat, radial-gradient(circle, rgba(255,215,0,1) 12%, rgba(255,255,255,1) 100%) no-repeat top center fixed;
+    background-blend-mode: multiply; /* Bianco */
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--primary-white);
+    font-family: 'Varela Round', sans-serif;
     color: var(--black);
     margin: 0;
     padding: 0;
@@ -19,7 +20,6 @@ body {
 header {
     background-color: var(--black);
     padding: 1em;
-    color: var(--primary-white);
 }
 
 nav h1 {
@@ -111,8 +111,8 @@ aside form input, aside form button {
 }
 
 footer {
-    background-color: var(--dark-gray);
-    color: var(--primary-white);
+    background-color: transparent;
+    color: var(--primary-black);
     text-align: center;
     padding-top:300;
     position: fixed;
