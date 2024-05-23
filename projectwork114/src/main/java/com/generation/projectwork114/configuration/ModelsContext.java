@@ -113,7 +113,7 @@ public class ModelsContext {
     public Canzone canzone(Map<String, String> mappa){
 
         Canzone c = new Canzone();
-        Long id = -1L;
+        Long id = 0L;
         Long id_album = 0L;
 
         if(mappa.containsKey("id")) {
@@ -130,14 +130,14 @@ public class ModelsContext {
         c.setTesti(mappa.get("testi"));
         c.setNumero_ascolti(Integer.parseInt(mappa.get("numero_ascolti")));
         
-        List<Playlist> listaPlaylists = new ArrayList<>();
-        Map<Long, Entity> result = daoPlaylist.readByIdCanzone(c.getId());
-            for(Entity e : result.values()){
-                if(e instanceof Playlist){
-                    listaPlaylists.add((Playlist)e);
-            }
-        }
-        c.setPlaylist(listaPlaylists);
+        // List<Playlist> listaPlaylists = new ArrayList<>();
+        // Map<Long, Entity> result = daoPlaylist.readByIdCanzone(c.getId());
+        //     for(Entity e : result.values()){
+        //         if(e instanceof Playlist){
+        //             listaPlaylists.add((Playlist)e);
+        //     }
+        // }
+        // c.setPlaylist(listaPlaylists);
         
         return c;
     }
