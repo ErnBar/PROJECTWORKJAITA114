@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.generation.projectwork114.models.Account;
+import com.generation.projectwork114.models.Album;
 import com.generation.projectwork114.models.Artista;
+import com.generation.projectwork114.models.Canzone;
 import com.generation.projectwork114.services.ServiceAlbum;
 import com.generation.projectwork114.services.ServiceArtista;
 import com.generation.projectwork114.services.ServiceCanzone;
@@ -45,6 +47,10 @@ public class StefanoController {
         if (artista == null) {
             return "errore.html";
         }
+        Album album = serviceAlbum.getAlbumById(artista.getId());
+        List<Canzone> canzoni = serviceCanzone.findByAlbum(album.getId());
+        model.addAttribute("albumSongs", canzoni);
+
         model.addAttribute("artista", artista);
         return "stefano.html";
     }
@@ -53,6 +59,12 @@ public class StefanoController {
     public String modificaAccount(@RequestParam Map<String, String> params){
         serviceArtista.update(params);
         return "redirect:/artista-bynome?nome="+params.get("nome_artista");
+    }
+
+    @PostMapping("/aggiungi-canzone")
+    public String aggiungiCanzone(@RequestParam Map<String, String> params){
+        serviceCanzone.addCanzone(params);
+        return "redirect:/";
     }
         
     
