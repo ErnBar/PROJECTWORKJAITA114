@@ -1,0 +1,175 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 15px;
+}
+
+#Home{
+    margin-left: -250px;
+
+}
+
+
+.container {
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1000px;
+    margin: 80px auto 20px; /* Adjusted margin for fixed header */
+    padding: 20px;
+}
+
+.photo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eaeaea;
+    padding: 20px;
+}
+
+.photo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.details {
+    flex: 2;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.biography {
+    margin-top: 20px;
+    line-height: 1.6;
+    font-size: small;
+}
+
+
+main {
+    width: 80%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-table {
+    margin-bottom: 20px;
+}
+
+.user-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.user-table th, .user-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.user-table th {
+    background-color: #333;
+    color: #fff;
+}
+
+.user-table tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+.user-table tr:hover {
+    background-color: #eaeaea;
+}
+
+.modifica-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.modifica-btn:hover {
+    background-color: #45a049;
+}
+
+aside#modifica {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+}
+
+aside#modifica form {
+    display: flex;
+    flex-direction: column;
+}
+
+aside#modifica form input[type="text"], 
+aside#modifica form input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+aside#modifica form .chiudi-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+aside#modifica form .chiudi-btn:hover {
+    background-color: #da190b;
+}
+
+aside#modifica form .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+aside#modifica form .submit-btn:hover {
+    background-color: #45a049;
+}

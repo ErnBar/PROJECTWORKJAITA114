@@ -1,13 +1,74 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pagina Artista</title>
-    </head>
-    <body>
-        <div>
-            <td th:text="${artista.nome_artista}"></td>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina del Cantante</title>
+    <link rel="stylesheet" href="css/stefano.css" type="text/css">
+    <script src="js/stefano.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <a href="/" id="Home">Home</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="photo">
+            <img src="/backgrounds/Edit Starry 1.png" alt="Foto dell'artista">
         </div>
-    </body>
+        <div class="details">
+            <h1 th:text="${artista.nome_artista}"></h1>
+            <h2 th:text="${artista.genere_musicale}"></h2>
+            <div class="biography">
+                <h3>Biografia</h3>
+                <p th:text="${artista.biografia}"></p>
+            </div>
+        </div>
+    </div>
+    <main>
+        <section class="user-table">
+            <table>
+                <thead>
+                    <th th:if="${isAdmin}">ID</th>
+                    <th>Nome Artista</th>
+                    <th>Genere</th>
+                    <th>Biografia</th>
+                    <th th:if="${isAdmin}">MODIFICA</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td th:if="${isAdmin}" th:text="${artista.id}"></td>
+                        <td th:text="${artista.nome_artista}"></td>
+                        <td th:text="${artista.genere_musicale}"></td>
+                        <td th:text="${artista.biografia}"></td>
+                        <td th:if="${isAdmin}">
+                            <button
+                                th:modifica-id="${artista.id}"
+                                th:modifica-nome_artista="${artista.nome_artista}"
+                                th:modifica-genere_musicale="${artista.genere_musicale}"
+                                th:modifica-biografia="${artista.biografia}"
+                                class="modifica-btn"
+                                onclick="modificaArtista(this)">
+                                Modifica
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <aside id="modifica" hidden>
+            <form id="modifica-artista" th:if="${isAdmin}" action="/modifica-artista" method="post">
+                <input type="text" id="modifica-id" name="id" placeholder="ID" readonly>
+                <input type="text" id="modifica-nome_artista" name="nome_artista" placeholder="nome_artista">
+                <input type="text" id="modifica-genere_musicale" name="genere_musicale" placeholder="genere_musicale">
+                <input type="text" id="modifica-biografia" name="biografia" placeholder="biografia">
+                <button id="chiudiModifica" class="chiudi-btn" onclick="chiudiFormModifica()">Chiudi</button>
+                <input type="submit" class="submit-btn" value="Modifica">
+            </form>
+        </aside>
+    </main>
+</body>
 </html>
