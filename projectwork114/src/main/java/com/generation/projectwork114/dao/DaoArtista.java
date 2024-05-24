@@ -70,12 +70,14 @@ public class DaoArtista implements IDao{
         int ris = 0;
         String query = "INSERT INTO account (username, nome, email, password, ruolo) VALUES (?, ?, ?, ?, ?)";
         String query2 = "INSERT INTO artisti(id,nome_artista,genere_musicale,biografia) VALUES(?,?,?,?)";
+        String query3="insert into album(titolo_album,anno_pubblicazione,id_artista) values(?,?,?)";
         Artista a = null;
         if (e!=null && e instanceof Artista) {
             a = (Artista) e;
             ris=database.executeUpdate(query, a.getUsername(), a.getNome(), a.getEmail(),
              a.getPassword(), a.getRuolo());
             database.executeUpdate(query2,String.valueOf(ris), a.getNome_artista(),a.getGenere_musicale(),a.getBiografia());
+            database.executeUpdate(query3,"newAlbum",String.valueOf(2024),String.valueOf(ris));
         }
         return ris;
     }

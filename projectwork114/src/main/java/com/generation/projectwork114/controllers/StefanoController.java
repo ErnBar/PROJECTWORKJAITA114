@@ -48,14 +48,11 @@ public class StefanoController {
             }
         }
         model.addAttribute("isAdmin", isAdmin);
-        boolean isOk = false;
+        
         boolean isStarry = false;
-        if (artista.getNome_artista().equalsIgnoreCase("starry")||artista.getNome_artista().equalsIgnoreCase("Newe")){
-            List<Album> album = serviceAlbum.findByIdArtista(artista.getId());
-            List<Canzone> canzoni = serviceCanzone.findByAlbum(album.get(0).getId());
-            model.addAttribute("albumSongs", canzoni);
-            isOk = true;
-        }
+        List<Album> album = serviceAlbum.findByIdArtista(artista.getId());
+        List<Canzone> canzoni = serviceCanzone.findByAlbum(album.get(0).getId());
+        model.addAttribute("albumSongs", canzoni);
         if (artista.getNome_artista().equalsIgnoreCase("starry")){
             isStarry = true;
         }
@@ -65,7 +62,6 @@ public class StefanoController {
         }
         model.addAttribute("gianlu", isNewe);
         model.addAttribute("stef", isStarry);
-        model.addAttribute("isStarry", isOk);
         model.addAttribute("artista", artista);
         return "stefano.html";
     }
