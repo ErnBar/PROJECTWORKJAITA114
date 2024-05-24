@@ -94,13 +94,17 @@ main {
 
 .user-table {
     margin-bottom: 20px;
+    border-radius: 100px;
 }
 
+/* Custom CSS for your table */
 .user-table table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
+    border-radius: 10px; /* Rounded corners */
 }
+
 
 .user-table th, .user-table td {
     padding: 12px 15px;
@@ -125,8 +129,10 @@ main {
     background-color: #4CAF50;
     color: white;
     padding: 10px 15px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
+    font-size: medium;
 }
 
 .modifica-btn:hover {
@@ -142,6 +148,14 @@ aside#modifica {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1001;
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+#modifica-biografia{
+    height: 300px;
+
 }
 
 aside#modifica form {
@@ -177,4 +191,138 @@ aside#modifica form .submit-btn {
 
 aside#modifica form .submit-btn:hover {
     background-color: #45a049;
+}
+
+#albumSongs{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#album-table {
+    width: 40%; /* La tabella occupa tutta la larghezza disponibile nel contenitore */
+    border-collapse: separate; /* Mantiene i bordi separati per arrotondarli */
+    border-radius: 10px; /* Arrotonda i bordi della tabella */
+    overflow: hidden; /* Nasconde gli angoli interni per l'arrotondamento */
+    position: relative;   
+}
+
+#album-table tbody {
+    background-color: #e9e6e6; /* Alterna il colore di sfondo delle righe */
+}
+
+#album-table th, #album-table td {
+    border: 1px solid #ddd; /* Bordo delle celle */
+    padding: 8px; /* Padding delle celle */
+}
+
+#album-table th {
+    background-color: #434141; /* Colore di sfondo dell'intestazione */
+    text-align: left; /* Allineamento del testo a sinistra */
+    border-radius: 10px 10px 0 0; /* Arrotonda solo gli angoli superiori dell'intestazione */
+}
+
+#album-table tbody tr:last-child td {
+    border-radius: 0 0 10px 10px; /* Arrotonda solo gli angoli inferiori delle celle dell'ultima riga */
+}
+
+#elimina{
+    background-color: #b72f2f;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+#elimina:hover{
+    background-color: #e80707;
+}
+
+h4{
+    text-align: center;
+    font-size: 200%;
+    color: white;
+}
+
+/* Custom CSS for your form */
+#formCanzone {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #434141;
+    color: white;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #ffd900;
+    color: #000000;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ffd500;
+    color: black;
+    font-weight: bold;
+}
+
+#testi{
+    height: 150px;
+    overflow-y: auto;
+}
+
+aside#modificaCanzone {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+}
+
+#bottone-modifica{
+    background-color: #ffd900;
+    color: #000000;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#modifica-testi{
+    height: 200px;
 }
