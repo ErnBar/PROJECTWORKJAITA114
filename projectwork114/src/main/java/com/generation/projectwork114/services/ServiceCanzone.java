@@ -39,7 +39,9 @@ public class ServiceCanzone implements IServiceCanzone{
 
     @Override
     public void addCanzone(Map<String, String> params) {
-       Canzone c = applicationContext.getBean(Canzone.class,params);
+        System.out.println("ServiceCanzone.addCanzone: " + params.toString());
+        Canzone c = applicationContext.getBean(Canzone.class,params);
+        
         daoCanzone.add(c);
     }
 

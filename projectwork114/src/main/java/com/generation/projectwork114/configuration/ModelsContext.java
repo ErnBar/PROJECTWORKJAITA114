@@ -124,11 +124,15 @@ public class ModelsContext {
         c.setDurata(mappa.get("durata"));
         if(mappa.containsKey("id_album")) {
             id_album = Long.parseLong(mappa.get("id_album"));
+            c.setId_album((Album)daoAlbum.cercaPerId(id_album));
         }
-        c.setId_album((Album)daoAlbum.cercaPerId(id_album));
+        
         c.setPercorso_canzone(mappa.get("percorso_canzone"));
         c.setTesti(mappa.get("testi"));
-        c.setNumero_ascolti(Integer.parseInt(mappa.get("numero_ascolti")));
+
+        if(mappa.containsKey("numero_ascolti")){
+            c.setNumero_ascolti(Integer.parseInt(mappa.get("numero_ascolti")));
+        }
         
         // List<Playlist> listaPlaylists = new ArrayList<>();
         // Map<Long, Entity> result = daoPlaylist.readByIdCanzone(c.getId());
@@ -138,7 +142,7 @@ public class ModelsContext {
         //     }
         // }
         // c.setPlaylist(listaPlaylists);
-        
+        System.out.println("ModelsContext.canzone: " + c.toString());
         return c;
     }
 

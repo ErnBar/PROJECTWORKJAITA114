@@ -194,7 +194,7 @@ h1{
     transition: all 0.3s ease-in-out;
     text-transform: lowercase;
     text-decoration: none;
-    color: #e0ee23;
+    color: #000000;
     transform: translateX(30%);
   }
   
@@ -266,4 +266,30 @@ h1{
 
 .footer p {
     margin: 0;
+}
+
+.home-link{
+  cursor: pointer;
+  color: #000; /* Nero */
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  background-color: #ffffff;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  top: -100px
+  
+  
+}
+
+.home-link:hover {
+  background-color: rgba(255,215,0,1);
 }
