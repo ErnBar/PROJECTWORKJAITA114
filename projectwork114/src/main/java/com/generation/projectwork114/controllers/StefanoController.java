@@ -60,6 +60,11 @@ public class StefanoController {
         if (artista.getNome_artista().equalsIgnoreCase("Newe")) {
             isNewe = true;
         }
+        boolean isNcs=false;
+        if (artista.getNome_artista().equalsIgnoreCase("NCS")) {
+            isNcs = true;
+        }
+        model.addAttribute("ncs", isNcs);
         model.addAttribute("gianlu", isNewe);
         model.addAttribute("stef", isStarry);
         model.addAttribute("artista", artista);

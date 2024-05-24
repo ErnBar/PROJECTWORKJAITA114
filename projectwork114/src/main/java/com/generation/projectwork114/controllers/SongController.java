@@ -40,5 +40,14 @@ public class SongController {
         model.addAttribute("canzoni", canzoni);
         return "songPlayermp3.html";
     }
+
+    @GetMapping("/song-playerNCS")
+    public String songPlayerNCS(HttpSession session,Model model){
+        List<Canzone> canzoni = serviceCanzone.findByAlbum(3L);
+        model.addAttribute("canzoni", canzoni);
+        return "songPlayerNCS.html";
+    }
+
+
     
 }
