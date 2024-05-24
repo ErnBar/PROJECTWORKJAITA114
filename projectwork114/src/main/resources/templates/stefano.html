@@ -89,18 +89,18 @@
     <div id="Inserisci" th:if="${isAdmin}">
         <h4>Inserimento di una nuova Canzone</h4>
         <form id="formCanzone" action="/aggiungi-canzone" method="post">
-            <label for="nomeCanzone">Nome Canzone</label>
-            <input type="text" id="nomeCanzone" name="nomeCanzone" required>
-            <label for="durataCanzone">Durata</label>
-            <input type="text" id="durataCanzone" name="durataCanzone" required>
-            <label for="album">IDAlbum</label>
-            <input type="number" id="album" name="album" required>
-            <label for="percorsoCanzone">PercorsoCanzone</label>
-            <input type="text" id="percorsoCanzone" name="percorsoCanzone" required>
-            <label for="testo">TestoCanzone</label>
-            <input type="text" id="testo" name="testo" required>
-            <label for="numeroAscolti">NumeroAscolti</label>
-            <input type="number" id="numeroAscolti" name="numeroAscolti" required>
+            <label for="titolo_canzone">Nome Canzone</label>
+            <input type="text" id="titolo_canzone" name="titolo_canzone" required>
+            <label for="durata">Durata</label>
+            <input type="text" id="durata" name="durata" required>
+            <label for="id_album">IDAlbum</label>
+            <input type="number" id="id_album" name="id_album" required>
+            <label for="percorso_canzone">PercorsoCanzone</label>
+            <input type="text" id="percorso_canzone" name="percorso_canzone" required>
+            <label for="testi">TestoCanzone</label>
+            <input type="text" id="testi" name="testi" required>
+            <label for="numero_ascolti">NumeroAscolti</label>
+            <input type="number" id="numero_ascolti" name="numero_ascolti" required>
             <button type="submit" th:if="${isAdmin}">Inserisci</button>
         </form>
     </div>

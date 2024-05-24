@@ -28,9 +28,9 @@ public class DaoCanzone implements IDao{
     public int add(Entity e) {
         int ris = 0;
         String query = "INSERT INTO canzoni (titolo_canzone, durata, id_album, percorso_canzone, testi, numero_ascolti) VALUES (?, ?, ?, ?, ?, ?)";
-        Canzone c = context.getBean("canzone",Canzone.class);
+        
         if (e instanceof Canzone) {
-            c = (Canzone) e;
+            Canzone c = (Canzone) e;
             ris=database.executeUpdate(query, c.getTitolo_canzone(), c.getDurata(), 
                                     String.valueOf(c.getId_album().getId()), c.getPercorso_canzone(), c.getTesti(), 
                                     String.valueOf(c.getNumero_ascolti()));
