@@ -29,7 +29,7 @@ public class SongController {
 
     @GetMapping("/song-player")
     public String songPlayer(HttpSession session,Model model){
-        List<Canzone> canzoni = serviceCanzone.getCanzone();
+        List<Canzone> canzoni = serviceCanzone.findByAlbum(1L);
         model.addAttribute("canzoni", canzoni);
         return "songPlayer.html";
     }

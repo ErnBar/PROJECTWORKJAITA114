@@ -6,6 +6,7 @@
     <title>Pagina del Cantante</title>
     <link rel="stylesheet" href="css/stefano.css" type="text/css">
     <script src="js/stefano.js"></script>
+    <link rel="Icon" href="backgrounds/daisybell.png" type="image/png">
 </head>
 <body>
     <header>
@@ -29,7 +30,7 @@
         </div>
     </div>
     <main th:if="${isAdmin}">
-        <section class="user-table">
+        <section class="user-table" id="user-table">
             <table>
                 <thead>
                     <th th:if="${isAdmin}">ID</th>
@@ -64,7 +65,7 @@
                 <input type="text" id="modifica-id" name="id" placeholder="ID" readonly>
                 <input type="text" id="modifica-nome_artista" name="nome_artista" placeholder="nome_artista">
                 <input type="text" id="modifica-genere_musicale" name="genere_musicale" placeholder="genere_musicale">
-                <input type="text" id="modifica-biografia" name="biografia" placeholder="biografia">
+                <textarea type="text" id="modifica-biografia" name="biografia" placeholder="biografia"></textarea>
                 <button id="chiudiModifica" class="chiudi-btn" onclick="chiudiFormModifica()">Chiudi</button>
                 <input type="submit" class="submit-btn" value="Modifica">
             </form>
@@ -98,7 +99,7 @@
                             Modifica
                         </button>
                     <td th:if="${isAdmin}">
-                        <a th:href="|/elimina-canzone?idCanzone=${song.id}|">Elimina</a>
+                        <a th:href="|/elimina-canzone?idCanzone=${song.id}|" id="elimina">Elimina</a>
                     </td>
                 </tr>
             </tbody>
@@ -111,10 +112,10 @@
             <input type="text" id="modifica-durata" name="durata" placeholder="durata">
             <input type="number" id="modifica-id_album" name="id_album" placeholder="id_album">
             <input type="text" id="modifica-percorso_canzone" name="percorso_canzone" placeholder="percorso_canzone">
-            <input type="text" id="modifica-testi" name="testi" placeholder="testi">
+            <textarea type="text" id="modifica-testi" name="testi" placeholder="testi"></textarea>
             <input type="number" id="modifica-numero_ascolti" name="numero_ascolti" placeholder="numero_ascolti">
             <button id="chiudiModificaCanzone" class="chiudi-btn" onclick="chiudiFormModificaCanzone()">Chiudi</button>
-            <input type="submit" class="submit-btn" value="Modifica">
+            <input type="submit" class="submit-btn" id="bottone-modifica" value="Modifica">
         </form>
     </aside>
     <div id="Inserisci" th:if="${isAdmin}">
@@ -124,13 +125,13 @@
             <input type="text" id="titolo_canzone" name="titolo_canzone" required>
             <label for="durata">Durata</label>
             <input type="text" id="durata" name="durata" required>
-            <label for="id_album">IDAlbum</label>
+            <label for="id_album">ID Album</label>
             <input type="number" id="id_album" name="id_album" required>
-            <label for="percorso_canzone">PercorsoCanzone</label>
+            <label for="percorso_canzone">Percorso Canzone</label>
             <input type="text" id="percorso_canzone" name="percorso_canzone" required>
-            <label for="testi">TestoCanzone</label>
-            <input type="text" id="testi" name="testi" required>
-            <label for="numero_ascolti">NumeroAscolti</label>
+            <label for="testi">Testo Canzone</label>
+            <textarea type="text" id="testi" name="testi" required></textarea>
+            <label for="numero_ascolti">Numero Ascolti</label>
             <input type="number" id="numero_ascolti" name="numero_ascolti" required>
             <button type="submit" th:if="${isAdmin}">Inserisci</button>
         </form>

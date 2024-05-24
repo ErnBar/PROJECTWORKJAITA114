@@ -172,6 +172,8 @@ footer {
 #album-container {
     display: flex;
     align-items: flex-start; /* Allinea verticalmente la tabella e l'immagine */
+    margin-top: 100px;
+    margin-left: 70px;
 }
 
 .image-container {
@@ -182,6 +184,28 @@ footer {
 }
 
 #albumStarry {
+    width: 89%; /* Mantiene la proporzione dell'immagine */
+    height: auto; /* Adatta l'altezza automaticamente */
+    border-radius: 10px; /* Arrotonda leggermente i bordi dell'immagine */
+}
+
+#artistaWeek {
+    display: flex;
+    float: right;
+    margin-top: -200px;
+    margin-right: 100px;
+    justify-content: space-between;
+    
+}
+
+
+.image-artista {
+    flex: 0 0 auto; /* L'immagine mantiene la sua dimensione */
+    max-width: 150px; /* Limita ulteriormente la larghezza massima dell'immagine */
+    margin-left: 100px; /* Spazio tra il bordo sinistro della pagina e l'immagine */
+}
+
+#fotoStarry {
     width: 89%; /* Mantiene la proporzione dell'immagine */
     height: auto; /* Adatta l'altezza automaticamente */
     border-radius: 10px; /* Arrotonda leggermente i bordi dell'immagine */
@@ -379,8 +403,72 @@ input{
   }
   
   
+  .image-artista{
+    position: relative;
+  width: 200px;
+  height: 200px;
+  color: #fff;
+  transition: 0.5s;
+  cursor: pointer;
+}
+  
+.image-artista:hover{
+    transform: translateY(-20px);
+}
 
+.image-artista::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #888888, #ffffff);
+    border-radius: 1.2em;
+    
+  }
 
+  .image-artista::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #888888, #000000);
+    filter: blur(30px);
+  }
+
+  .image-artista #fotoStarry {
+    position: relative;
+    padding: 10px;
+    z-index: 10;
+    width: 130px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #artistOfWeek{
+    display: flex;
+    float: right;
+    margin-top: 10px;
+    margin-right: 100px;
+    background-color: #f8cb04;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  #albumOfWeek{
+    display: flex;
+    float: left;
+    margin-bottom: 300px;
+    margin-left: 100px;
+    background-color: #f8cb04;
+    border-radius: 10px;
+    padding: 10px;
+  }
 
 
 
