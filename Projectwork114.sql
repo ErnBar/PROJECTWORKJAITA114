@@ -106,6 +106,27 @@ VALUES ('Starry - The Truth', '00:03:54', 1, 'Starry.songs', 'Testo della canzon
 INSERT INTO Account (username, nome, email, password, ruolo) 
 VALUES ('numberOneFan', 'Gianni Rossi', 'n1fan@gmail.com', 'iLoveMusic123', 'user');
 
+INSERT INTO Account (username, nome, email, password, ruolo)
+VALUES ('Gianlu', 'Gianluca Canova', 'gianlu@gmail.com', '19962300', 'artista');
+
+insert into artisti (id, nome_artista, genere_musicale, biografia)
+values (4,'NeWe','Techno','We are a new generation: we listen, we have fun, we have different dreams.
+With this music we express the wish to change and reversal of trend.
+Be yourself, we are the "new we".');
+
+insert into album (titolo_album, anno_pubblicazione, id_artista)
+values ('Better night', 2023, 4);
+
+INSERT INTO Canzoni (titolo_canzone, durata, id_album, percorso_canzone, testi, numero_ascolti) 
+VALUES ('Better Now', '00:04:55', 2, 'NeWe.songs', 'Testo della canzone 1', 1000);
+
+INSERT INTO Canzoni (titolo_canzone, durata, id_album, percorso_canzone, testi, numero_ascolti) 
+VALUES ('Blue Day', '00:03:04', 2, 'NeWe.songs', 'Testo della canzone 2', 1000);
+
+INSERT INTO Canzoni (titolo_canzone, durata, id_album, percorso_canzone, testi, numero_ascolti) 
+VALUES ('Summer Night', '00:02:56', 2, 'NeWe.songs', 'Testo della canzone 3', 1000);
+
+
 UPDATE Canzoni SET testi = 'You climb the stairs to my bed
 Revere a new faith instead
 An altar of two hip bones
