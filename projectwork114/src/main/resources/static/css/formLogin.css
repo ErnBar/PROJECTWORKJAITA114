@@ -1,14 +1,10 @@
-@keyframes animatedBackground {
-    0% { background-position: 0 0; }
-    50% { background-position: 100% 0; }
-    100% { background-position: 0 0; }
-}
+
 
 body, html {
     height: 100%;
     margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: #ffffff; /* Bianco */
+    background: radial-gradient(circle, rgba(255,215,0,1) 12%, rgba(255,255,255,1) 100%) no-repeat top center fixed;
     color: #000; /* Nero */
 }
 
@@ -95,7 +91,19 @@ button:hover {
     width: 400px; /* Larghezza della GIF */
     height: 100px; /* Altezza della GIF */
     flex: none; /* Non permette alle GIF di crescere o restringersi */
+    animation: spVortex 2s infinite linear;
 }
+
+@keyframes spVortex {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(359deg);
+    }
+  }
+  
 
 .modal {
     display: none; /* Nascosto di default */
@@ -139,7 +147,7 @@ button:hover {
 footer {
     margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: #ffffff; /* Bianco */
+    background: transparent;
     color: #000; /* Nero */
     text-align: center;
     padding: 20px 0; /* Aggiunge padding in alto e in basso */
