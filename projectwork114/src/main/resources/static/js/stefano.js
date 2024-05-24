@@ -21,3 +21,35 @@ function chiudiFormModifica(){
     form.hidden = true;
 
 }
+
+function modificaCanzone(oggetto){
+    
+        var div = document.getElementById("modificaCanzone");
+        div.hidden = false;
+    
+        var idCanzone = document.getElementById("modifica-idCanzone");
+        var titolo_canzone = document.getElementById("modifica-titolo_canzone");
+        var durata = document.getElementById("modifica-durata");
+        var id_album = document.getElementById("modifica-id_album");
+        var percorso_canzone = document.getElementById("modifica-percorso_canzone");
+        var testi = document.getElementById("modifica-testi");
+        var numero_ascolti = document.getElementById("modifica-numero_ascolti");
+    
+        idCanzone.value = oggetto.getAttribute("modifica-idCanzone");
+        titolo_canzone = oggetto.getAttribute("modifica-titolo_canzone");
+        durata = oggetto.getAttribute("modifica-durata");
+        id_album = oggetto.getAttribute("modifica-id_album");
+        percorso_canzone = oggetto.getAttribute("modifica-percorso_canzone");
+        testi = oggetto.getAttribute("modifica-testi");
+        numero_ascolti = oggetto.getAttribute("modifica-numero_ascolti");
+        console.log(idCanzone);
+        console.log(titolo_canzone);
+        console.log(durata);
+        console.log(id_album);
+}
+
+function chiudiFormModificaCanzone(){
+    var form = document.getElementById("modificaCanzone");
+    form.hidden = true;
+
+}
