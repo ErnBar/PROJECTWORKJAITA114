@@ -69,7 +69,20 @@ public class StefanoController {
     @PostMapping("/aggiungi-canzone")
     public String aggiungiCanzone(@RequestParam Map<String, String> params){
         serviceCanzone.addCanzone(params);
-        return "redirect:/";
+        return "redirect:/artista-bynome?nome=Starry";
+    }
+
+    @PostMapping("/modifica-canzone")
+    public String modificaCanzone(@RequestParam Map<String, String> params){
+        serviceCanzone.updateCanzone(params);
+        return "redirect:/artista-bynome?nome=Starry";
+    }
+
+    @GetMapping("/elimina-canzone")
+    public String eliminaCanzone(@RequestParam(name="idCanzone", defaultValue = "0") Long idCanzone, Model model){
+        Canzone canzone = serviceCanzone.findById(idCanzone);
+        serviceCanzone.deleteCanzone(canzone.getId());
+        return "redirect:/artista-bynome?nome=Starry";
     }
         
     
