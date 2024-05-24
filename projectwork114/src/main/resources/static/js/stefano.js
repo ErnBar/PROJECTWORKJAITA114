@@ -36,12 +36,12 @@ function modificaCanzone(oggetto){
         var numero_ascolti = document.getElementById("modifica-numero_ascolti");
     
         idCanzone.value = oggetto.getAttribute("modifica-idCanzone");
-        titolo_canzone = oggetto.getAttribute("modifica-titolo_canzone");
-        durata = oggetto.getAttribute("modifica-durata");
-        id_album = oggetto.getAttribute("modifica-id_album");
-        percorso_canzone = oggetto.getAttribute("modifica-percorso_canzone");
-        testi = oggetto.getAttribute("modifica-testi");
-        numero_ascolti = oggetto.getAttribute("modifica-numero_ascolti");
+        titolo_canzone.value = oggetto.getAttribute("modifica-titolo_canzone");
+        durata.value = oggetto.getAttribute("modifica-durata");
+        id_album.value = oggetto.getAttribute("modifica-id_album");
+        percorso_canzone.value = oggetto.getAttribute("modifica-percorso_canzone");
+        testi.value = oggetto.getAttribute("modifica-testi");
+        numero_ascolti.value = oggetto.getAttribute("modifica-numero_ascolti");
         console.log(idCanzone);
         console.log(titolo_canzone);
         console.log(durata);

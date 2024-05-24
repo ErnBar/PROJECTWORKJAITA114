@@ -66,7 +66,7 @@ public class DaoCanzone implements IDao{
         if (e instanceof Canzone) {
             c = (Canzone) e;
             database.executeUpdate(query, c.getTitolo_canzone(), c.getDurata(), 
-                                    String.valueOf(c.getId_album()), c.getPercorso_canzone(), c.getTesti(), 
+                                    String.valueOf(c.getId_album().getId()), c.getPercorso_canzone(), c.getTesti(), 
                                     String.valueOf(c.getNumero_ascolti()), String.valueOf(c.getId()));
         } 
     }
