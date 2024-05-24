@@ -17,8 +17,11 @@
         </nav>
     </header>
     <div class="container">
-        <div class="photo" th:if="${isStarry}">
+        <div class="photo" th:if="${stef}">
             <a href="/song-player"><img src="/backgrounds/Edit Starry 1.png" alt="Foto dell'artista"></a>
+        </div>
+        <div class="photo" th:if="${gianlu}">
+            <a href="/song-playermp3"><img src="/backgrounds/foto profilo.jpg" alt="Foto dell'artista"></a>
         </div>
         <div class="details">
             <h1 th:text="${artista.nome_artista}"></h1>

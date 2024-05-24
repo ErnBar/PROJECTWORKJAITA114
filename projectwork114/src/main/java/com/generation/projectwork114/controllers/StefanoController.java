@@ -43,19 +43,29 @@ public class StefanoController {
         }
         if (utente != null && utente instanceof Account) {
             Account u = (Account) utente;
-            if (u.getId()==artista.getId()||u.getRuolo().equalsIgnoreCase("admin")) {
+            if (u.getId()==artista.getId()) {
                 isAdmin = true;
             }
         }
         model.addAttribute("isAdmin", isAdmin);
+        boolean isOk = false;
         boolean isStarry = false;
-        if (artista.getNome_artista().equalsIgnoreCase("starry")) {
+        if (artista.getNome_artista().equalsIgnoreCase("starry")||artista.getNome_artista().equalsIgnoreCase("Newe")){
             List<Album> album = serviceAlbum.findByIdArtista(artista.getId());
             List<Canzone> canzoni = serviceCanzone.findByAlbum(album.get(0).getId());
             model.addAttribute("albumSongs", canzoni);
+            isOk = true;
+        }
+        if (artista.getNome_artista().equalsIgnoreCase("starry")){
             isStarry = true;
         }
-        model.addAttribute("isStarry", isStarry);
+        boolean isNewe = false;
+        if (artista.getNome_artista().equalsIgnoreCase("Newe")) {
+            isNewe = true;
+        }
+        model.addAttribute("gianlu", isNewe);
+        model.addAttribute("stef", isStarry);
+        model.addAttribute("isStarry", isOk);
         model.addAttribute("artista", artista);
         return "stefano.html";
     }
@@ -67,22 +77,31 @@ public class StefanoController {
     }
 
     @PostMapping("/aggiungi-canzone")
-    public String aggiungiCanzone(@RequestParam Map<String, String> params){
+    public String aggiungiCanzone(@RequestParam Map<String, String> params,HttpSession session){
+        Object utente = session.getAttribute("utente");
+        Account u = (Account) utente;
+        Artista artista = serviceArtista.findById(u.getId());
         serviceCanzone.addCanzone(params);
-        return "redirect:/artista-bynome?nome=Starry";
+        return "redirect:/artista-bynome?nome="+artista.getNome_artista();
     }
 
     @PostMapping("/modifica-canzone")
-    public String modificaCanzone(@RequestParam Map<String, String> params){
+    public String modificaCanzone(@RequestParam Map<String, String> params,HttpSession session){
+        Object utente = session.getAttribute("utente");
+        Account u = (Account) utente;
+        Artista artista = serviceArtista.findById(u.getId());
         serviceCanzone.updateCanzone(params);
-        return "redirect:/artista-bynome?nome=Starry";
+        return "redirect:/artista-bynome?nome="+artista.getNome_artista();
     }
 
     @GetMapping("/elimina-canzone")
-    public String eliminaCanzone(@RequestParam(name="idCanzone", defaultValue = "0") Long idCanzone, Model model){
+    public String eliminaCanzone(@RequestParam(name="idCanzone", defaultValue = "0") Long idCanzone, Model model,HttpSession session){
         Canzone canzone = serviceCanzone.findById(idCanzone);
+        Object utente = session.getAttribute("utente");
+        Account u = (Account) utente;
+        Artista artista = serviceArtista.findById(u.getId());
         serviceCanzone.deleteCanzone(canzone.getId());
-        return "redirect:/artista-bynome?nome=Starry";
+        return "redirect:/artista-bynome?nome="+artista.getNome_artista();
     }
         
     
