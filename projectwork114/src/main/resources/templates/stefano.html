@@ -17,7 +17,7 @@
     </header>
     <div class="container">
         <div class="photo" th:if="${isStarry}">
-            <img src="/backgrounds/Edit Starry 1.png" alt="Foto dell'artista">
+            <a href="/song-player"><img src="/backgrounds/Edit Starry 1.png" alt="Foto dell'artista"></a>
         </div>
         <div class="details">
             <h1 th:text="${artista.nome_artista}"></h1>
@@ -109,7 +109,7 @@
             <input type="text" id="modifica-idCanzone" name="id" placeholder="ID" readonly>
             <input type="text" id="modifica-titolo_canzone" name="titolo_canzone" placeholder="titolo_canzone">
             <input type="text" id="modifica-durata" name="durata" placeholder="durata">
-            <input type="number" id="modifica-id_album" name="id_album" placeholder="id_album" readonly>
+            <input type="number" id="modifica-id_album" name="id_album" placeholder="id_album">
             <input type="text" id="modifica-percorso_canzone" name="percorso_canzone" placeholder="percorso_canzone">
             <input type="text" id="modifica-testi" name="testi" placeholder="testi">
             <input type="number" id="modifica-numero_ascolti" name="numero_ascolti" placeholder="numero_ascolti">
