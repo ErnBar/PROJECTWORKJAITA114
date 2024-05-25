@@ -29,7 +29,7 @@
         <div class="photo" th:if="${ncs}">
             <form id="photo-upload-form">
                 <input type="file" id="photo-input" accept="image/*" required>
-                <button type="button" onclick="uploadPhoto()">Carica Foto</button>
+                <button type="button" onclick="uploadPhoto()" id="photo-upload">Carica Foto</button>
             </form>
             <img id="artist-photo" src="" alt="Foto dell'artista">
         </div>

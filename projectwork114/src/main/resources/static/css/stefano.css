@@ -326,3 +326,11 @@ aside#modificaCanzone {
 #modifica-testi{
     height: 200px;
 }
+
+#artist-photo{
+    margin-left: -180px;
+}
+
+#photo-upload{
+    margin-left: -200px;
+}
