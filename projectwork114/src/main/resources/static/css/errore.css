@@ -3,7 +3,7 @@
 
 html {
     font-family: 'Ubuntu', sans-serif;
-    background: url('/backgrounds/margNegativo.gif') repeat, #c30000 fixed;
+    background: url('/backgrounds/margNegativo.gif') repeat, radial-gradient(circle, rgb(219, 0, 0) 12%, rgb(0, 0, 0) 100%) no-repeat top center fixed;;
     background-blend-mode: multiply;
     margin: 0;
     padding: 0;
