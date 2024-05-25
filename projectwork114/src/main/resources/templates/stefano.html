@@ -26,6 +26,13 @@
         <div class="photo" th:if="${gianlu}">
             <a href="/song-playermp3"><img src="/backgrounds/foto profilo.jpg" alt="Foto dell'artista"></a>
         </div>
+        <div class="photo" th:if="${ncs}">
+            <form id="photo-upload-form">
+                <input type="file" id="photo-input" accept="image/*" required>
+                <button type="button" onclick="uploadPhoto()">Carica Foto</button>
+            </form>
+            <img id="artist-photo" src="" alt="Foto dell'artista">
+        </div>
         <div class="details">
             <h1 th:text="${artista.nome_artista}"></h1>
             <h2 th:text="${artista.genere_musicale}"></h2>

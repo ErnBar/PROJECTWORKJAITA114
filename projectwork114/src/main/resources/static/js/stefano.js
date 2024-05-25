@@ -53,3 +53,22 @@ function chiudiFormModificaCanzone(){
     form.hidden = true;
 
 }
+
+
+function uploadPhoto() {
+    const input = document.getElementById('photo-input');
+    const file = input.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const img = document.getElementById('artist-photo');
+            img.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    } else {
+        alert('Seleziona un file da caricare.');
+    }
+}
