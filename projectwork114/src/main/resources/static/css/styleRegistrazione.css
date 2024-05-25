@@ -2,7 +2,8 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: #ffffff; /* Bianco */
+    background: url("/backgrounds/gif2.gif") repeat, radial-gradient(circle, rgba(255,215,0,1) 12%, rgba(255,255,255,1) 100%) no-repeat top center fixed;
+    background-blend-mode: multiply; /* Bianco */
     color: #000; /* Nero */
 }
 
