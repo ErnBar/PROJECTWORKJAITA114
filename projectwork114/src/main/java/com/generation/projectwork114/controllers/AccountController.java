@@ -65,13 +65,13 @@ public class AccountController {
             //Verifico che la password sia lunga almeno 8 caratteri
             if (utente.getPassword().length() < 8) {
                 model.addAttribute("error", "La password deve essere lunga almeno 8 caratteri");
-                return "registrazioneUtente.html";
+                return "redirect:/formRegistrazione";
             }
 
 
             if (!utente.getPassword().equals(confermaPassword)) {
                 model.addAttribute("error", "Le password non coincidono");
-                return "registrazioneUtente.html";
+                return "redirect:/formRegistrazione";
             }
             //salvo l'utente nel database
             serviceAccount.add(allParams);
@@ -112,13 +112,13 @@ public class AccountController {
             
             if (utente.getPassword().length() < 8) {
                 model.addAttribute("error", "La password deve essere lunga almeno 8 caratteri");
-                return "registrazioneArtista.html";
+                return "redirect:/formregistrazione-artista";
             }
 
 
             if (!utente.getPassword().equals(confermaPassword)) {
                 model.addAttribute("error", "Le password non coincidono");
-                return "registrazioneArtista.html";
+                return "redirect:/formregistrazione-artista";
             }
 
             
