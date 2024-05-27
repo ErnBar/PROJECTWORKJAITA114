@@ -343,6 +343,7 @@ h1{
   width: 3em;
 }
 
-#facebook {
-  color: rgba(10, 128, 236, 0.7);
+#button a svg path {
+  fill: #f857b5;
+  
 }
